@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205191855) do
+ActiveRecord::Schema.define(version: 20171212184006) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20171205191855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_groups_on_house_id"
+  end
+
+  create_table "groups_tasks", id: false, force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "task_id", null: false
+    t.index ["group_id", "task_id"], name: "index_groups_tasks_on_group_id_and_task_id"
+    t.index ["task_id", "group_id"], name: "index_groups_tasks_on_task_id_and_group_id"
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
   end
 
   create_table "houses", force: :cascade do |t|
