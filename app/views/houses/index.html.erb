@@ -29,6 +29,7 @@
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
         <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Groups', house_groups_path(house) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,4 +38,11 @@
 <br>
 
 <%= link_to 'New House', new_house_path %>
+
+<br>
+<br>
+<br>
+<div>
+  <%= link_to 'Back Home', root_path %>
+</div>
 

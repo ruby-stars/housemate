@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
+<h1>Groups of <%= @house.name %></h1>
 
 <table>
   <thead>
@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @groups.each do |group| %>
+    <% @house.groups.each do |group| %>
       <tr>
         <td><%= group.name %></td>
         <td><%= group.about %></td>

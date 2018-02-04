@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <h1>
   <strong>Name:</strong>
   <%= @house.name %>
+  </h1>
 </p>
 
 <p>
@@ -42,8 +44,8 @@
 <br>
 
 <div>
-  <h1>This house's groups:</h1>
-  <% @groups.each do |group| %>
+  <h2>This house's groups:</h2>
+  <% @house.groups.each do |group| %>
     <div>
       <strong><%= group.name %></strong>
       <%= group.about %>
@@ -54,4 +56,8 @@
 <br>
 <div>
   <%= link_to 'Create a new group for this house', new_house_group_path(@house, @group) %>
+</div>
+<br>
+<div>
+  <%= link_to 'Back to All Houses', houses_path %>
 </div>
