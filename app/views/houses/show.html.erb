@@ -37,3 +37,21 @@
 
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
+
+<br>
+<br>
+
+<div>
+  <h1>This house's groups:</h1>
+  <% @groups.each do |group| %>
+    <div>
+      <strong><%= group.name %></strong>
+      <%= group.about %>
+      <%= link_to 'Show', house_group_path(@house, group)%>
+    </div>
+  <% end %>
+</div>
+<br>
+<div>
+  <%= link_to 'Create a new group for this house', new_house_group_path(@house, @group) %>
+</div>

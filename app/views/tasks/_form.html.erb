@@ -26,10 +26,12 @@
     <%= form.date_select :duedate, id: :task_duedate %>
   </div>
 
-  <div class="field">
-    <%= form.label :completed %>
-    <%= form.check_box :completed, id: :task_completed %>
-  </div>
+  <% if params[:action] == "edit" %>
+    <div class="field">
+      <%= form.label :completed %>
+      <%= form.check_box :completed, id: :task_completed %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
