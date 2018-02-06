@@ -1,12 +1,26 @@
 <h1>Home</h1>
 
 <div>
-	<h1>Existing Houses:</h1>
+	
 	<% @houses.each do |house| %>
 		<div>
 			<strong><%= house.name %></strong>
 			<%= house.city %>
-			<%= link_to 'Show', house %>
+			<br>
+			<%house.groups.each do |group| %>
+			<div>
+				<%= group.name %>
+			</div>
+			<% end %>
+			<%= link_to 'Show House', house %>
 		</div>
 	<% end %>
 </div>
+
+<br>
+
+<%= link_to 'Show All Houses', houses_path %>
+
+<br>
+
+<%= link_to 'Create New House', new_house_path %>
