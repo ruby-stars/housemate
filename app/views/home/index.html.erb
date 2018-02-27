@@ -5,6 +5,7 @@
 	</div>
 </div>
 
+
 <br>
 
 <div class="row">
@@ -13,10 +14,12 @@
 			<strong><%= house.name %></strong>
 			<%= house.city %>
 			<br>
+
 			<% house.groups.each do |group| %>
-				<div>
+			  <div>
 					<%= group.name %>
 				</div>
+      
 			<% end %>
 			<%= link_to 'Show House', house %>
 		</div>
@@ -26,5 +29,7 @@
 <br>
 
 <%= link_to 'Show All Houses', houses_path %>
+
 <br>
+
 <%= link_to 'Create New House', new_house_path %>

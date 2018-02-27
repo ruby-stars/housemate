@@ -10,5 +10,19 @@
   <%= @group.about %>
 </p>
 
-<%= link_to 'Edit', edit_house_group_path(@group) %> |
-<%= link_to 'Back', house_groups_path %>
+<%= link_to 'Edit', edit_house_group_path(@house, @group) %> |
+<%= link_to 'Back', house_groups_path %> |
+<%= link_to 'Create new task', new_house_group_task_path(@house, @group,@task) %>
+
+<br>
+<br>
+
+<div>
+  <h3>This group's tasks:</h3>
+  <% @group.tasks.each do |task| %>
+    <div>
+      <strong><%= task.name %></strong>
+      <%= link_to 'Show', house_group_task_path(@house, @group, task)%>
+    </div>
+  <% end %>
+</div>

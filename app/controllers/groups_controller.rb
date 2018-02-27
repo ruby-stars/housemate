@@ -53,13 +53,15 @@ class GroupsController < ApplicationController
 
   private
 
-    def set_group
-      @group = Group.find(params[:id])
-    end
-
+  def set_group
+    @group = Group.find(params[:id])
+  end
+  
     def set_house
       @house = House.find(params[:house_id])
     end
+
+
 
     def group_params
       params[:group].permit(:name, :about)

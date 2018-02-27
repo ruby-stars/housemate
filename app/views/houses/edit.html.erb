@@ -1,6 +1,6 @@
-<h1>Editing House</h1>
+<h2>Editing House</h2>
 
-<%= render 'form', house: @house %>
+<%= render 'form', house: @house, http_method: put %>
 
 <%= link_to 'Show', @house %> |
 <%= link_to 'Back', houses_path %>

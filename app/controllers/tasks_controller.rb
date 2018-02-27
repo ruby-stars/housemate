@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_group
+  before_action :set_house
 
   # GET /tasks
   # GET /tasks.json
@@ -25,10 +27,11 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @group.tasks << @task
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to house_group_tasks_url, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -56,7 +59,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to house_group_tasks_path(@house, @group), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +70,19 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
     end
 
+    def set_group
+      @group = Group.find(params[:group_id])
+
+    end
+
+    def set_house
+      @house = House.find(params[:house_id])
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:name, :description, :duedate, :completed)
+
     end
 end

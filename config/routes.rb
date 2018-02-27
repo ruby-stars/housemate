@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :tasks
   resources :houses do
-    resources :groups
+    resources :groups do
+      resources :tasks
+    end
   end
 
   root to: 'home#index'
