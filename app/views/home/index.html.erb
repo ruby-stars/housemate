@@ -1,16 +1,25 @@
-<h1>Home</h1>
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">Housemate</h1>
+			<p class="lead">Welcome to Housemate</p>
+	</div>
+</div>
 
-<div>
-	
+
+<br>
+
+<div class="row">
 	<% @houses.each do |house| %>
-		<div>
+		<div class="col-4">
 			<strong><%= house.name %></strong>
 			<%= house.city %>
 			<br>
-			<%house.groups.each do |group| %>
-			<div>
-				<%= group.name %>
-			</div>
+
+			<% house.groups.each do |group| %>
+			  <div>
+					<%= group.name %>
+				</div>
+      
 			<% end %>
 			<%= link_to 'Show House', house %>
 		</div>
