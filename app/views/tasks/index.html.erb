@@ -20,9 +20,9 @@
         <td><%= task.description %></td>
         <td><%= task.duedate %></td>
         <td><%= task.completed %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', house_group_task_path(@house, @group, task) %></td>
+        <td><%= link_to 'Edit', edit_house_group_task_path(@house, @group, task) %></td>
+        <td><%= link_to 'Destroy', house_group_task_path(@house, @group, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,13 @@
 
 <br>
 
-<%= link_to 'New Task', new_house_group_task_path %>
+<%= link_to 'New Task', new_house_group_task_path %> |
+
+<!-- <br> -->
+
+<%= link_to 'Back to Group', house_groups_path(@group)%> |
+
+<!-- <br> -->
+
+
+<%= link_to 'Back Home', root_path %>
