@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks of <%= @group.name %></h1>
+<h1>Tasks of Group: <%= @group.name %></h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
         <td><%= task.completed %></td>
         <td><%= link_to 'Show', house_group_task_path(@house, @group, task) %></td>
         <td><%= link_to 'Edit', edit_house_group_task_path(@house, @group, task) %></td>
-        <td><%= link_to 'Destroy', house_group_task_path(@house, @group, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', house_group_task_path(@house, @group, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,7 +34,7 @@
 
 <!-- <br> -->
 
-<%= link_to 'Back to Group', house_group_path(@house, @group)%> |
+<%= link_to 'Back up to Group', house_group_path(@house, @group)%> |
 
 <!-- <br> -->
 
