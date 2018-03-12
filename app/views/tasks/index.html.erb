@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+<h1>Tasks of <%= @group.name %></h1>
 
 <table>
   <thead>
@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% @group.tasks.each do |task| %>
       <tr>
         <td><%= task.name %></td>
         <td><%= task.description %></td>
@@ -34,7 +34,7 @@
 
 <!-- <br> -->
 
-<%= link_to 'Back to Group', house_groups_path(@group)%> |
+<%= link_to 'Back to Group', house_group_path(@house, @group)%> |
 
 <!-- <br> -->
 
