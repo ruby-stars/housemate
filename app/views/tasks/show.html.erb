@@ -2,6 +2,7 @@
 
 <p>
   <strong>Name:</strong>
+  <br>
   <%= @task.name %>
 </p>
 
@@ -20,7 +21,8 @@
   <%= @task.completed %>
 </p>
 
-<%= link_to 'Edit', edit_house_group_task_path(@task) %> |
+<%= link_to 'Edit', edit_house_group_task_path(@house, @group, @task) %> |
+<%= link_to 'Delete', house_group_task_path(@house, @group, @task), method: :delete, data: { confirm: 'Are you sure?' }  %> <br>
 <%= link_to 'Back to Tasks', house_group_tasks_path %> |
 <%= link_to 'Back to Group', house_groups_path %>
 
