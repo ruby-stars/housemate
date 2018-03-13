@@ -8,22 +8,22 @@
 
 <br>
 
-<div class="row">
-	<% @houses.each do |house| %>
-		<div class="col-4">
-			<strong><%= house.name %></strong>
-			<%= house.city %>
-			<br>
-
-			<% house.groups.each do |group| %>
-			  <div>
-					<%= group.name %>
-				</div>
-      
-			<% end %>
-			<%= link_to 'Show House', house %>
-		</div>
-	<% end %>
+<div class="container-fluid">
+	<div class="row">
+		<% @houses.each do |house| %>
+			<div class="col-4">
+				<strong><%= house.name %></strong>
+				<%= house.city %>
+				<br>
+					<% house.groups.each do |group| %>
+						<div>
+							<%= group.name %>
+						</div>
+					<% end %>
+					<%= link_to 'Show House', house %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 <br>
