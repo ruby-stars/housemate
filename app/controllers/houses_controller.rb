@@ -16,6 +16,13 @@ class HousesController < ApplicationController
   # GET /houses/new
   def new
     @house = House.new
+    @house.HouseImage = params[:file]
+
+    @house.save!
+    @house.HouseImage.url # => '/url/to/file.png'
+    @house.HouseImage.current_path # => 'path/to/file.png'
+    @house.HouseImage_identifier # => 'file.png'
+
   end
 
   # GET /houses/1/edit
@@ -70,6 +77,6 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:name, :street, :number, :additionalinfo, :postalcode, :city, :about)
+      params.require(:house).permit(:name, :street, :number, :additionalinfo, :postalcode, :city, :about, :HouseImage )
     end
 end
