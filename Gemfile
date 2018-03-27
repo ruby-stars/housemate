@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'sprockets-rails'
 gem 'carrierwave', '~> 1.2.2'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-rails'
