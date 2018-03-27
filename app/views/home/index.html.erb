@@ -12,7 +12,9 @@
 	<div class="row">
 		<% @last_houses.each do |house| %>
 			<div class="col-4">
-				<strong><%= house.name %></strong>
+				<%= link_to (image_tag house.HouseImage.thumb.url), house%>
+				<br>
+				<strong><%= link_to house.name, house %></strong>
 				<%= house.city %>
 				<br>
 					<% house.groups.each do |group| %>

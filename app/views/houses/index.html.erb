@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Street</th>
       <th>Number</th>
-      <th>Additionalinfo</th>
       <th>Postalcode</th>
       <th>City</th>
       <th>About</th>
@@ -19,17 +19,17 @@
   <tbody>
     <% @houses.each do |house| %>
       <tr>
+        <td><%= image_tag house.HouseImage.small_thumb.url%></td>
         <td><%= house.name %></td>
         <td><%= house.street %></td>
         <td><%= house.number %></td>
-        <td><%= house.additionalinfo %></td>
         <td><%= house.postalcode %></td>
         <td><%= house.city %></td>
         <td><%= house.about %></td>
+        <td><%= link_to 'Groups', house_groups_path(house) %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Groups', house_groups_path(house) %></td>
+        <td><%= link_to 'Delete House', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
