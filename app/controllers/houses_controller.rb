@@ -20,6 +20,8 @@ class HousesController < ApplicationController
 
     @house.save!
     @house.HouseImage.url # => '/url/to/file.png'
+    @house.HouseImage.thumb.url # => '/url/to/file.png' 200x200px
+    @house.HouseImage.small_thumb.url # => '/url/to/file.png' 20x20px
     @house.HouseImage.current_path # => 'path/to/file.png'
     @house.HouseImage_identifier # => 'file.png'
 
