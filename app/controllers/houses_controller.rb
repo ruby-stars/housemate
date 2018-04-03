@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
   # GET /houses
@@ -15,7 +16,7 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
-    @house = House.new
+    @house = current_user.houses.build
     @house.HouseImage = params[:file]
 
     @house.save!
@@ -34,7 +35,7 @@ class HousesController < ApplicationController
   # POST /houses
   # POST /houses.json
   def create
-    @house = House.new(house_params)
+    @house = current_user.houses.build(house_params)
 
     respond_to do |format|
       if @house.save
