@@ -19,7 +19,6 @@ class HousesController < ApplicationController
     @house = current_user.houses.build
     @house.HouseImage = params[:file]
 
-    @house.save!
     @house.HouseImage.url # => '/url/to/file.png'
     @house.HouseImage.thumb.url # => '/url/to/file.png' 200x200px
     @house.HouseImage.small_thumb.url # => '/url/to/file.png' 20x20px
@@ -36,7 +35,7 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = current_user.houses.build(house_params)
-
+      @house.admin = current_user
     respond_to do |format|
       if @house.save
         format.html { redirect_to @house, notice: 'House was successfully created.' }
@@ -65,12 +64,20 @@ class HousesController < ApplicationController
   # DELETE /houses/1
   # DELETE /houses/1.json
   def destroy
-    @house.destroy
-    respond_to do |format|
+    if cannot? :destroy, @house
+      respond_to do |format|
+        format.html { redirect_to houses_url, notice: 'You are not authorized to delete the house.' }
+        format.json { head :no_content }
+      end
+    else
+      @house.destroy
+      respond_to do |format|
       format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
       format.json { head :no_content }
+      end
     end
   end
+    
 
   private
     # Use callbacks to share common setup or constraints between actions.

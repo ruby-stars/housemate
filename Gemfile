@@ -18,6 +18,7 @@ gem 'sprockets-rails'
 gem 'carrierwave', '~> 1.2.2'
 gem 'mini_magick'
 gem 'devise'
+gem 'cancancan', '~> 2.0'
 
 group :development, :test do
   gem 'pry-rails'
