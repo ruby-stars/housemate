@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  devise_for :users
   resources :houses do
     resources :groups do
       resources :tasks

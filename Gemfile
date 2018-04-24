@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sprockets-rails'
 gem 'carrierwave', '~> 1.2.2'
 gem 'mini_magick'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
