@@ -20,6 +20,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @house.groups << @group
+    current_user.groups << @group
 
     respond_to do |format|
       if @group.save
@@ -57,7 +58,7 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
-  
+
     def set_house
       @house = House.find(params[:house_id])
     end
