@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424173728) do
+ActiveRecord::Schema.define(version: 20180731173247) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -18,12 +18,14 @@ ActiveRecord::Schema.define(version: 20180424173728) do
     t.integer "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["house_id"], name: "index_groups_on_house_id"
   end
 
   create_table "groups_tasks", id: false, force: :cascade do |t|
     t.integer "group_id", null: false
     t.integer "task_id", null: false
+    t.integer "user_id"
     t.index ["group_id", "task_id"], name: "index_groups_tasks_on_group_id_and_task_id"
     t.index ["task_id", "group_id"], name: "index_groups_tasks_on_task_id_and_group_id"
   end
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180424173728) do
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
