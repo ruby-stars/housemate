@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_house, only: [:show, :edit, :update, :destroy]
 
   # GET /houses
@@ -77,7 +77,7 @@ class HousesController < ApplicationController
       end
     end
   end
-    
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
