@@ -8,7 +8,6 @@ class Ability
     can :manage, :all, admin_id: user
       if user.present?
         can :manage, Group, user_id: user.id
-      else
       end
 
     #
