@@ -10,6 +10,11 @@
   <%= @group.about %>
 </p>
 
+<p>
+  <strong>Group Admin:</strong>
+  <%= @group.user.email %>
+</p>
+
 <%= link_to 'Edit', edit_house_group_path(@house, @group) %> |
 <%= link_to 'Back', house_groups_path %> |
 <%= link_to 'Create new task', new_house_group_task_path(@house, @group, @task) %>

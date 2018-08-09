@@ -38,13 +38,19 @@
   <%= @house.about %>
 </p>
 
-<% if can? :update, @house %>
-  <%= link_to 'Edit', edit_house_path(@house) %>
-  <%= link_to 'Delete House', house_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<p>
+  <strong>House Admin:</strong>
+  <%= @house.user.email %>
+</p>
+
+<%# if can? :update, @house %>
+  <%= link_to 'Edit', edit_house_path(@house) %> |
+  <%= link_to 'Delete House', house_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%# end %>
 <%= link_to 'Back', houses_path %>
 
 <br>
+
 <br>
 
 <div>

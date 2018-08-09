@@ -42,7 +42,9 @@
 							<%= group.name %>
 						</div>
 					<% end %>
-					<%= link_to 'Show House', house %>
+					<button type="button" class="btn btn-outline-secondary btn-sm">
+						<%= link_to 'Show House', house %>
+					</button>
 			</div>
 		<% end %>
 	</div>
@@ -50,8 +52,13 @@
 
 <br>
 
-<%= link_to 'Show All Houses', houses_path %>
+
+
+<button type="button" class="btn btn-outline-secondary">
+	<%= link_to 'Show All Houses', houses_path %>
+</button>
 
 <br>
-
+<button type="button" class="btn btn-outline-secondary">
 <%= link_to 'Create New House', new_house_path %>
+</button>
