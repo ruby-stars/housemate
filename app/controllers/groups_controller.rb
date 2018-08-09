@@ -7,15 +7,13 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @group = Group.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @group = Group.new(group_params)
@@ -59,13 +57,11 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-    def set_house
-      @house = House.find(params[:house_id])
-    end
+  def set_house
+    @house = House.find(params[:house_id])
+  end
 
-
-
-    def group_params
-      params[:group].permit(:name, :about)
-    end
+  def group_params
+    params[:group].permit(:name, :about)
+  end
 end
