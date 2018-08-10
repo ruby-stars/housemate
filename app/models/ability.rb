@@ -5,7 +5,7 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #   user ||= User.new # guest user (not logged in)
 
-    can :read, House # permissions for every user, even if not logged in    
+    can :read, House # permissions for every user, even if not logged in
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       can [:read, :create], House
       #if user.admin?  # additional permissions for administrators
