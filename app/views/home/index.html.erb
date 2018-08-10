@@ -1,13 +1,13 @@
-<nav class="navbar navbar-default">	
+<nav class="navbar navbar-default">
 	<div class="container">
-		<p class="navbar-brand"> <%= link_to "Housemate", root_path %></p>
-		
+		  <h1>Housemate</h1>
+
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
   	 		<li><%= link_to "New House", new_house_path %></li>
   	 		<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
   	  </ul>
-		 
+
     <% else %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -16,15 +16,6 @@
     <% end %>
     </div>
 </nav>
-
-
-<div class="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 class="display-4">Housemate</h1>
-			<p class="lead">Welcome to Housemate</p>
-	</div>
-</div>
-
 
 <br>
 
@@ -53,12 +44,12 @@
 <br>
 
 
+<div>
+  <button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Show All Houses', houses_path %>
+  </button>
 
-<button type="button" class="btn btn-outline-secondary">
-	<%= link_to 'Show All Houses', houses_path %>
-</button>
-
-<br>
-<button type="button" class="btn btn-outline-secondary">
-<%= link_to 'Create New House', new_house_path %>
-</button>
+  <button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Create New House', new_house_path %>
+  </button>
+</div>
