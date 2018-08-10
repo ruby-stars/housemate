@@ -1,1 +1,1 @@
-json.partial! "houses/house", house: @house
+json.partial! 'houses/house', house: @house
