@@ -15,3 +15,30 @@
  */
 
 @import "bootstrap";
+
+body {
+  background-color: #F5F5F5;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  color: #282623;
+}
+
+.navbar {
+  padding: 0rem;
+  color: #334ACC;
+  font-family: 'Comfortaa', cursive;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #212121;
+  }
+
+  &:hover {
+    color: white;
+  }
+}

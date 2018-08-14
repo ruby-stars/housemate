@@ -24,10 +24,9 @@
 		<% @last_houses.each do |house| %>
 			<div class="col-4">
 				<%= link_to (image_tag house.HouseImage.thumb.url), house%>
-				<br>
-				<strong><%= link_to house.name, house %></strong>
-				<%= house.city %>
-				<br>
+				<br></br>
+				<h6><%= link_to house.name, house %></h6>
+				<p><%= house.city %></p>
 					<% house.groups.each do |group| %>
 						<div>
 							<%= group.name %>
