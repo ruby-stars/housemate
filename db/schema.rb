@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180731173247) do
+ActiveRecord::Schema.define(version: 20180821185632) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(version: 20180731173247) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["house_id"], name: "index_groups_on_house_id"
-  end
-
-  create_table "groups_tasks", id: false, force: :cascade do |t|
-    t.integer "group_id", null: false
-    t.integer "task_id", null: false
-    t.integer "user_id"
-    t.index ["group_id", "task_id"], name: "index_groups_tasks_on_group_id_and_task_id"
-    t.index ["task_id", "group_id"], name: "index_groups_tasks_on_task_id_and_group_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -42,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180731173247) do
     t.datetime "updated_at", null: false
     t.string "HouseImage"
     t.integer "user_id"
-    t.integer "admin_id"
+    t.integer "house_owner_id"
   end
 
   create_table "houses_users", id: false, force: :cascade do |t|
@@ -59,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180731173247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,6 +65,7 @@ ActiveRecord::Schema.define(version: 20180731173247) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

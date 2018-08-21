@@ -10,6 +10,29 @@ class Ability
         can :manage, Group, user_id: user.id
       end
 
+class Ability
+  include CanCan::Ability
+
+  def initialize(user)
+    can :read, House # permissions for every user, even if not logged in    
+    if user.present?  # additional permissions for logged in users (they can manage their posts)
+      can :read, House #can also create new house 
+      if user.admin?  # additional permissions for administrators
+        can :manage, :all
+      elsif user.house_owner?
+        can :manage, House
+        can :manage, Group
+        can :manage, Task
+      elsif user.house_mate?
+        can :read, House
+        can :manage, Group
+        can :manage, Task
+      end
+    end
+  end
+end
+
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

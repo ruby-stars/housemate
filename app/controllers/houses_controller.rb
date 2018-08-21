@@ -35,7 +35,7 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = current_user.houses.build(house_params)
-      @house.admin = current_user
+    @house.house_owner = current_user
     respond_to do |format|
       if @house.save
         format.html { redirect_to @house, notice: 'House was successfully created.' }
