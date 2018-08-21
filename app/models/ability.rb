@@ -4,29 +4,19 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #   user ||= User.new # guest user (not logged in)
-    can :read, :all
-    can :manage, :all, admin_id: user
-      if user.present?
-        can :manage, Group, user_id: user.id
-      end
 
-class Ability
-  include CanCan::Ability
-
-  def initialize(user)
     can :read, House # permissions for every user, even if not logged in    
     if user.present?  # additional permissions for logged in users (they can manage their posts)
-      can :read, House #can also create new house 
+      can [:read, :create], House
       if user.admin?  # additional permissions for administrators
         can :manage, :all
       elsif user.house_owner?
-        can :manage, House
-        can :manage, Group
-        can :manage, Task
+        can [:read, :create], House
+        can [:update, :destroy], House, user_id: user.id
+        can :manage, [Group, Task]
       elsif user.house_mate?
-        can :read, House
-        can :manage, Group
-        can :manage, Task
+        can [:read, :create], House
+        can :manage, [Group, Task]
       end
     end
   end
@@ -51,5 +41,3 @@ end
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
-end
