@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821185632) do
+ActiveRecord::Schema.define(version: 20180821231154) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20180821185632) do
     t.datetime "updated_at", null: false
     t.string "HouseImage"
     t.integer "user_id"
-    t.integer "house_owner_id"
   end
 
   create_table "houses_users", id: false, force: :cascade do |t|
@@ -65,7 +64,10 @@ ActiveRecord::Schema.define(version: 20180821185632) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "role"
+    t.boolean "admin", default: false
+    t.boolean "house_owner", default: false
+    t.boolean "house_mate", default: false
+    t.boolean "user", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
