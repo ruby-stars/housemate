@@ -27,7 +27,7 @@
         <td><%= house.postalcode %></td>
         <td><%= house.city %></td>
         <td><%= house.about %></td>
-        <td><%= house.house_owner.email %></td>
+        <td><%#= house.house_owner.email %></td>
         <td><%= link_to 'Groups', house_groups_path(house) %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>

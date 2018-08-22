@@ -35,7 +35,11 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = current_user.houses.build(house_params)
-    @house.house_owner = current_user
+    #@house.user_id = current_user.id
+    current_user.house_owner = true
+    @house.users << current_user
+
+    #why is @house.user = current_user not working in line 38??
     respond_to do |format|
       if @house.save
         format.html { redirect_to @house, notice: 'House was successfully created.' }

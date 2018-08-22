@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821231154) do
+ActiveRecord::Schema.define(version: 20180822133515) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20180821231154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "HouseImage"
-    t.integer "user_id"
   end
 
   create_table "houses_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "house_id", null: false
-    t.index ["house_id", "user_id"], name: "index_houses_users_on_house_id_and_user_id"
+    t.integer "house_id"
+    t.integer "user_id"
+    t.index ["house_id"], name: "index_houses_users_on_house_id"
+    t.index ["user_id"], name: "index_houses_users_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
