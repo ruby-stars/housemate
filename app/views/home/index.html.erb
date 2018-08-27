@@ -27,6 +27,7 @@
 				<br></br>
 				<h6><%= link_to house.name, house %></h6>
 				<p><%= house.city %></p>
+				<p>House Manager: <%= house.users.first.email %> </p>
 					<% house.groups.each do |group| %>
 						<div>
 							<%= group.name %>

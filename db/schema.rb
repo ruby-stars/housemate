@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180827203313) do
+ActiveRecord::Schema.define(version: 20180827135508) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180827203313) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["house_id"], name: "index_groups_on_house_id"
+    #why is 21 and 22 not the same?
   end
 
   create_table "houses", force: :cascade do |t|

@@ -19,7 +19,11 @@
         <td><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.duedate %></td>
-        <td><%= task.completed %></td>
+        <% if task.completed %>
+          <td>Yes</td>
+        <% else %>
+          <td>No</td>
+        <% end %>
         <td><%= link_to 'Show', house_group_task_path(@house, @group, task) %></td>
         <td><%= link_to 'Edit', edit_house_group_task_path(@house, @group, task) %></td>
         <td><%= link_to 'Delete', house_group_task_path(@house, @group, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
