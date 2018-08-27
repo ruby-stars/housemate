@@ -35,8 +35,8 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = current_user.houses.build(house_params)
-    #@house.user_id = current_user.id
-    current_user.house_owner = true
+    #@house.user = current_user
+    current_user.house_manager = true
     @house.users << current_user
 
     #why is @house.user = current_user not working in line 38??

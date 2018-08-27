@@ -40,7 +40,7 @@
 
 <p>
   <strong>House Owner:</strong>
-  <%= @house.user_id.email %>
+  <%= @house.users.first.email %> 
 </p>
 
 <%# if can? :update, @house %>

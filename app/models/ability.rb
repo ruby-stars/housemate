@@ -10,7 +10,7 @@ class Ability
       can [:read, :create], House
       if user.admin?  # additional permissions for administrators
         can :manage, :all
-      elsif user.house_owner?
+      elsif user.house_manager?
         can [:read, :create], House
         can [:update, :destroy], House, user_id: user.id
         can :manage, [Group, Task]
