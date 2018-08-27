@@ -12,7 +12,7 @@
       <th>Postalcode</th>
       <th>City</th>
       <th>About</th>
-      <th>House Owner</th>
+      <th>House Manager</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@
         <td><%= house.postalcode %></td>
         <td><%= house.city %></td>
         <td><%= house.about %></td>
-        <td><%#= house.house_manager.email %></td>
+        <td><%= house.house_manager.try(:email)%></td>
         <td><%= link_to 'Groups', house_groups_path(house) %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
