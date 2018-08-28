@@ -12,11 +12,12 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @groups = Group.all
+    @house_manager = @house.mates.find { |mate| mate.house_manager?}.user
   end
 
   # GET /houses/new
   def new
-    @house = current_user.houses.build
+    @house = House.new
     @house.HouseImage = params[:file]
 
     @house.HouseImage.url # => '/url/to/file.png'
@@ -34,10 +35,11 @@ class HousesController < ApplicationController
   # POST /houses
   # POST /houses.json
   def create
-    @house = current_user.houses.build(house_params)
-    @house.house_owner = current_user
+    @house = House.new(house_params)
+    @mate = Mate.new(user: current_user, house: @house, house_manager: true )
+
     respond_to do |format|
-      if @house.save
+      if @house.save && @mate.save
         format.html { redirect_to @house, notice: 'House was successfully created.' }
         format.json { render :show, status: :created, location: @house }
       else

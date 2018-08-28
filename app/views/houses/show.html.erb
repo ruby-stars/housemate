@@ -39,20 +39,19 @@
 </p>
 
 <p>
-  <strong>House Owner:</strong>
-  <%= @house.house_owner.email %>
+  <strong>House Manager:</strong>
+  <%= @house_manager.email %>
 </p>
 
-<%# if can? :update, @house %>
-  <%= link_to 'Edit', edit_house_path(@house) %> |
-  <%= link_to 'Delete House', house_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%# end %>
+<%= link_to 'Edit', edit_house_path(@house) if can? :update, @house %> |
+<%= link_to 'Delete House', house_path, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @house %> |
 <%= link_to 'Back', houses_path %>
 
 <br>
 
 <br>
 
+<% if can? :manage, Group %>
 <div>
 
   <h3>This house's groups:</h3>
@@ -65,10 +64,13 @@
     </div>
   <% end %>
 </div>
+
 <br>
 <div>
   <%= link_to 'Create a new group for this house', new_house_group_path(@house, @group) %>
 </div>
+
+<% end %>
 
 <br>
 <div>

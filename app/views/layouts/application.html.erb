@@ -12,10 +12,49 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <h1><%= link_to "Housemate", root_path %></h1>
+
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                <%= link_to "New House", new_house_path %>
+              </button>
+            </li>
+            <li>
+              Signed in as: <%= current_user.email %> 
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </button>
+            </li>
+          </ul>
+
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-outline-secondary btn-sm">
+                <%= link_to "Sign In", new_user_session_path %>
+              </button>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+  </nav>
+
+<br>
+
     <div class="container">
       <%= yield %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
+  
   </body>
 </html>
