@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180827135508) do
+ActiveRecord::Schema.define(version: 20180828174043) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20180827135508) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["house_id"], name: "index_groups_on_house_id"
-    #why is 21 and 22 not the same?
   end
 
   create_table "houses", force: :cascade do |t|
@@ -36,11 +35,12 @@ ActiveRecord::Schema.define(version: 20180827135508) do
     t.string "HouseImage"
   end
 
-  create_table "houses_users", id: false, force: :cascade do |t|
+  create_table "mates", id: false, force: :cascade do |t|
     t.integer "house_id"
     t.integer "user_id"
-    t.index ["house_id"], name: "index_houses_users_on_house_id"
-    t.index ["user_id"], name: "index_houses_users_on_user_id"
+    t.boolean "house_manager", default: false
+    t.index ["house_id"], name: "index_mates_on_house_id"
+    t.index ["user_id"], name: "index_mates_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -65,10 +65,6 @@ ActiveRecord::Schema.define(version: 20180827135508) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.boolean "admin", default: false
-    t.boolean "house_manager", default: false
-    t.boolean "house_mate", default: false
-    t.boolean "user", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

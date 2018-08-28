@@ -8,11 +8,11 @@ class Ability
     can :read, House # permissions for every user, even if not logged in    
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       can [:read, :create], House
-      if user.admin?  # additional permissions for administrators
-        can :manage, :all
-      elsif user.house_manager?
+      #if user.admin?  # additional permissions for administrators
+        #can :manage, :all
+      if user.house_manager?
         can [:read, :create], House
-        can [:update, :destroy], House, id: user.houses.pluck(:id)
+        can [:update, :destroy], House #, id: user.houses.pluck(:id)
         can :manage, [Group, Task]
       elsif user.house_mate?
         can [:read, :create], House
