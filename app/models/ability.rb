@@ -12,7 +12,7 @@ class Ability
         can :manage, :all
       elsif user.house_manager?
         can [:read, :create], House
-        can [:update, :destroy], House      #, user_id: user.id
+        can [:update, :destroy], House, id: user.houses.pluck(:id)
         can :manage, [Group, Task]
       elsif user.house_mate?
         can [:read, :create], House
