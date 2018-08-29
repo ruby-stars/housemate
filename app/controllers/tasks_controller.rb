@@ -12,8 +12,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1
   # GET /tasks/1.json
-  def show
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -21,8 +20,7 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tasks
   # POST /tasks.json
@@ -33,7 +31,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to house_group_tasks_url, notice: 'Task was successfully created.' }
+        format.html { redirect_to house_group_tasks_url,
+        notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -67,24 +66,23 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
 
-    def set_group
-      @group = Group.find(params[:group_id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    end
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
 
-    def set_house
-      @house = House.find(params[:house_id])
-    end
+  def set_house
+    @house = House.find(params[:house_id])
+  end
 
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:name, :description, :duedate, :completed)
-
-    end
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def task_params
+    params.require(:task).permit(:name, :description, :duedate, :completed)
+  end
 end
