@@ -22,36 +22,36 @@ ActiveRecord::Schema.define(version: 20180828174043) do
     t.index ['house_id'], name: 'index_groups_on_house_id'
   end
 
-  create_table "houses", force: :cascade do |t|
-    t.string "name"
-    t.string "street"
-    t.integer "number"
-    t.string "additionalinfo"
-    t.integer "postalcode"
-    t.string "city"
-    t.text "about"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "HouseImage"
+  create_table 'houses', force: :cascade do |t|
+    t.string 'name'
+    t.string 'street'
+    t.integer 'number'
+    t.string 'additionalinfo'
+    t.integer 'postalcode'
+    t.string 'city'
+    t.text 'about'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'HouseImage'
   end
 
-  create_table "mates", id: false, force: :cascade do |t|
-    t.integer "house_id"
-    t.integer "user_id"
-    t.boolean "house_manager", default: false
-    t.index ["house_id"], name: "index_mates_on_house_id"
-    t.index ["user_id"], name: "index_mates_on_user_id"
+  create_table 'mates', id: false, force: :cascade do |t|
+    t.integer 'house_id'
+    t.integer 'user_id'
+    t.boolean 'house_manager', default: false
+    t.index ['house_id'], name: 'index_mates_on_house_id'
+    t.index ['user_id'], name: 'index_mates_on_user_id'
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.date "duedate"
-    t.boolean "completed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "group_id"
+  create_table 'tasks', force: :cascade do |t|
+    t.string 'name'
+    t.text 'description'
+    t.date 'duedate'
+    t.boolean 'completed'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'user_id'
+    t.integer 'group_id'
   end
 
   create_table 'users', force: :cascade do |t|
