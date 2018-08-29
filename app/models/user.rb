@@ -9,10 +9,10 @@ class User < ApplicationRecord
   has_many :mates
 
   def house_mate?
-  	mates.any?
+    mates.any?
   end
 
   def house_manager?
-  	mates.any? { |mate| mate.house_manager? }
+    mates.any? { |mate| mate.house_manager? }
   end
 end
