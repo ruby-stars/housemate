@@ -25,12 +25,10 @@ class HousesController < ApplicationController
     @house.HouseImage.small_thumb.url # => '/url/to/file.png' 20x20px
     @house.HouseImage.current_path # => 'path/to/file.png'
     @house.HouseImage_identifier # => 'file.png'
-
   end
 
   # GET /houses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /houses
   # POST /houses.json
@@ -74,21 +72,22 @@ class HousesController < ApplicationController
     else
       @house.destroy
       respond_to do |format|
-      format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
-      format.json { head :no_content }
+        format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
+        format.json { head :no_content }
       end
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_house
-      @house = House.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def house_params
-      params.require(:house).permit(:name, :street, :number, :additionalinfo, :postalcode, :city, :about, :HouseImage )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_house
+    @house = House.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def house_params
+    params.require(:house).permit(:name, :street, :number, :additionalinfo, :postalcode, :city, :about, :HouseImage)
+  end
 end
