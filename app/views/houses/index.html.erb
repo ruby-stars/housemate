@@ -27,7 +27,7 @@
         <td><%= house.postalcode %></td>
         <td><%= house.city %></td>
         <td><%= house.about %></td>
-        <td><%= house.users.first.email%></td>
+        <td><%#= house.users.first.email%></td>
         <td><%= link_to 'Groups', house_groups_path(house) if can? :manage, Group %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) if can? :update, house %></td>
