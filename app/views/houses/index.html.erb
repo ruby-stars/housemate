@@ -7,9 +7,7 @@
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Street</th>
-      <th>Number</th>
-      <th>Postalcode</th>
+      <th>Address</th>
       <th>City</th>
       <th>House Manager</th>
       <th colspan="3"></th>
@@ -19,15 +17,11 @@
   <tbody>
     <% @houses.each do |house| %>
       <tr>
-        <td><%= image_tag house.HouseImage.small_thumb.url%></td>
-        <td><%= house.name %></td>
-        <td><%= house.street %></td>
-        <td><%= house.number %></td>
-        <td><%= house.postalcode %></td>
-        <td><%= house.city %></td>
+        <td><%= link_to (image_tag house.HouseImage.small_thumb.url), house %></td>
+        <td><%= link_to house.name, house %></td>
+        <td><%= house.street %> <%= house.number %></td>
+        <td><%= house.postalcode %> <%= house.city %></td>
         <td><%= house.house_manager.email%></td>
-        <td><%= link_to 'Groups', house_groups_path(house) if can? :manage, Group %></td>
-        <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) if can? :update, house %></td>
       </tr>
     <% end %>
@@ -36,12 +30,16 @@
 
 <br>
 
-<%= link_to 'New House', new_house_path %>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Create New House', new_house_path %>
+</button>
 
 <br>
 
 <br>
 <br>
 <div>
+<button type="button" class="btn btn-outline-secondary">
   <%= link_to 'Back Home', root_path %>
+</button>
 </div>

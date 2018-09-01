@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<h3><%= @group.name %></h3>
 
 <p>
   <strong>About:</strong>
@@ -16,23 +13,46 @@
 </p>
 
 <% if can? :manage, @group %>
-  <%= link_to 'Edit', edit_house_group_path(@house, @group) %> |
-  <%= link_to 'Delete', house_group_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Edit', edit_house_group_path(@house, @group) %>
+  </button>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Delete', house_group_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </button>
 <% end %>
 
 <br>
 <br>
 
-<div>
-  <h3>This group's tasks:</h3>
-  <% @group.tasks.each do |task| %>
-    <div>
-      <strong><%= task.name %></strong>
-      <%= link_to 'Show', house_group_task_path(@house, @group, task)%>
-    </div>
-  <% end %>
+
+<h4>This group's tasks:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Due Date</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.tasks.each do |task| %>
+    <tr>
+      <td><strong><%= link_to task.name, house_group_task_path(@house, @group, task) %></strong></td>
+      <td><%= task.duedate %></td>
+      <td><%= task.completed ? 'Yes' : 'No' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-outline-secondary">
   <%= link_to 'Create new task', new_house_group_task_path(@house, @group, @task) %>
-</div>
+</button>
 
 <br>
-<%= link_to 'Back', house_groups_path %>
+<br>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back To All Groups', house_groups_path %>
+</button>

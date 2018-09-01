@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>About</th>
-      <th>Open Tasks</th>
+      <th>Pending Tasks</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,11 +21,8 @@
           <td><%= group.name %></td>
         <% end %>
         <td><%= group.about %></td>
-        <td><%= group.tasks.count { |task| !task.completed? } %></td>
-        <% if can? :manage, group %>
-          <td><%= link_to 'All Tasks', house_group_tasks_path(@house, group) %></td>
-          <td><%= link_to 'Edit', edit_house_group_path(@house, group) %></td>
-        <% end %>
+        <td><%= group.tasks.count { |task| !task.completed? } %> <%= link_to 'All Tasks', house_group_tasks_path(@house, group) if can? :manage, group %></td>
+        <td><%= link_to 'Edit', edit_house_group_path(@house, group) if can? :manage, group %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,10 +30,19 @@
 
 <br>
 
-<%= link_to 'New Group', new_house_group_path %> |
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'New Group', new_house_group_path %>
+</button>
 
-<%= link_to 'Back to house', house_path(@house)%>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Back to House', house_path(@house)%>
+</button>
 
 <br>
+<br>
 
-<%= link_to 'Back Home', root_path %>
+<div>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back Home', root_path %>
+</button>
+</div>
