@@ -55,12 +55,13 @@
 <div>
 
   <h3>This house's groups:</h3>
+  <%= link_to 'Show all', house_groups_path(@house) %>
 
   <% @house.groups.each do |group| %>
     <div>
       <strong><%= group.name %></strong>
       <%= group.about %>
-      <%= link_to 'Show', house_group_path(@house, group)%>
+      <%= link_to 'Show', house_group_path(@house, group) if can? :manage, group %>
     </div>
   <% end %>
 </div>

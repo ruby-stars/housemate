@@ -19,6 +19,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @house.groups << @group
     current_user.groups << @group
+    #authorize! :create, @group (there's an error message but group is saving anyway)
 
     respond_to do |format|
       if @group.save

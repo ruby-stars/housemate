@@ -15,9 +15,10 @@
   <%= @group.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_house_group_path(@house, @group) %> |
-<%= link_to 'Back', house_groups_path %> |
-<%= link_to 'Create new task', new_house_group_task_path(@house, @group, @task) %>
+<% if can? :manage, @group %>
+  <%= link_to 'Edit', edit_house_group_path(@house, @group) %> |
+  <%= link_to 'Delete', house_group_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <br>
 <br>
@@ -30,4 +31,8 @@
       <%= link_to 'Show', house_group_task_path(@house, @group, task)%>
     </div>
   <% end %>
+  <%= link_to 'Create new task', new_house_group_task_path(@house, @group, @task) %>
 </div>
+
+<br>
+<%= link_to 'Back', house_groups_path %>
