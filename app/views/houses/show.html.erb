@@ -40,7 +40,7 @@
 
 <p>
   <strong>House Manager:</strong>
-  <%= @house_manager.email %>
+  <%= @house.house_manager.email %>
 </p>
 
 <%= link_to 'Edit', edit_house_path(@house) if can? :update, @house %> |
