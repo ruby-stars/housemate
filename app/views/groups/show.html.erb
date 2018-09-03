@@ -26,6 +26,7 @@
 
 
 <h4>This group's tasks:</h4>
+<%= link_to 'Show all', house_group_tasks_path(@house, @group) %>
 
 <table>
   <thead>
@@ -47,12 +48,15 @@
   </tbody>
 </table>
 
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Create new task', new_house_group_task_path(@house, @group, @task) %>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Create New Task', new_house_group_task_path(@house, @group, @task) %>
 </button>
 
 <br>
 <br>
 <button type="button" class="btn btn-outline-secondary">
   <%= link_to 'Back To All Groups', house_groups_path %>
+</button>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back To House', house_path(@house) %>
 </button>

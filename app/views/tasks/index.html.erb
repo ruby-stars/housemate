@@ -16,7 +16,7 @@
   <tbody>
     <% @group.tasks.each do |task| %>
       <tr>
-        <td><%= task.name %></td>
+        <td><%= link_to task.name, house_group_task_path(@house, @group, task) %></td>
         <td><%= task.description %></td>
         <td><%= task.duedate %></td>
         <% if task.completed %>
@@ -24,9 +24,7 @@
         <% else %>
           <td>No</td>
         <% end %>
-        <td><%= link_to 'Show', house_group_task_path(@house, @group, task) %></td>
         <td><%= link_to 'Edit', edit_house_group_task_path(@house, @group, task) %></td>
-        <td><%= link_to 'Delete', house_group_task_path(@house, @group, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,13 +32,10 @@
 
 <br>
 
-<%= link_to 'New Task', new_house_group_task_path %> |
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'New Task', new_house_group_task_path %>
+</button>
 
-<!-- <br> -->
-
-<%= link_to 'Back up to Group', house_group_path(@house, @group)%> |
-
-<!-- <br> -->
-
-
-<%= link_to 'Back Home', root_path %>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Back to Group', house_group_path(@house, @group)%>
+</button>

@@ -65,15 +65,17 @@
 </div>
 
 <br>
-<div>
-  <%= link_to 'Create a new group for this house', new_house_group_path(@house, @group) %>
-</div>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Create New Group', new_house_group_path(@house, @group) %>
+</button>
 
 <% end %>
 
 <br>
-<div>
-  <button type="button" class="btn btn-outline-secondary">
-    <%= link_to 'Back to All Houses', houses_path %>
-  </button>
-</div>
+<br>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back to All Houses', houses_path %>
+</button>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back Home', root_path %>
+</button>
