@@ -6,7 +6,7 @@ class House < ApplicationRecord
   mount_uploader :HouseImage, HouseImageUploader
 
   def house_manager
-  	mates.find{ |mate| mate.house_manager?}.user
+  	mates.find {|mate| mate.house_manager?}.user
   end
 
 end
