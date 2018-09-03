@@ -6,8 +6,8 @@
 				<%= link_to (image_tag house.HouseImage.thumb.url), house%>
 				<br></br>
 				<h6><%= link_to house.name, house %></h6>
-				<p><%= house.city %></p>
-				<p>House Manager: <%#= house.users.first.email %> </p>
+				<p>Located in: <%= house.city %></p>
+				<p>Managed by: <%= house.house_manager.email %> </p>
 					<% house.groups.each do |group| %>
 						<div>
 							<%= group.name %>

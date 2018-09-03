@@ -13,11 +13,6 @@ class User < ApplicationRecord
   end
 
   def house_manager?
-    mates.any? { |mate| mate.house_manager? }
-    mates.any?
-  end
-
-  def house_manager?
-  mates.any? { |mate| mate.house_manager? }
+    mates.any? {|mate| mate.house_manager? }
   end
 end

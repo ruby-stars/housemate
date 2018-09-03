@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>About</th>
+      <th>Open Tasks</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +15,17 @@
   <tbody>
     <% @house.groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
+        <% if can? :manage, group %>
+          <td><%= link_to group.name, house_group_path(@house, group) %></td>
+        <% else %>
+          <td><%= group.name %></td>
+        <% end %>
         <td><%= group.about %></td>
-        <td><%= link_to 'Show', house_group_path(@house, group) %></td>
-        <td><%= link_to 'Edit', edit_house_group_path(@house, group) %></td>
-        <td><%= link_to 'Destroy', house_group_path(@house, group), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= group.tasks.count {|task| !task.completed? } %></td>
+        <% if can? :manage, group %>
+          <td><%= link_to 'All Tasks', house_group_tasks_path(@house, group) %></td>
+          <td><%= link_to 'Edit', edit_house_group_path(@house, group) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

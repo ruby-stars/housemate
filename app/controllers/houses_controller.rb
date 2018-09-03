@@ -12,7 +12,6 @@ class HousesController < ApplicationController
   # GET /houses/1.json
   def show
     @groups = Group.all
-    @house_manager = @house.mates.find { |mate| mate.house_manager?}.user
   end
 
   # GET /houses/new
