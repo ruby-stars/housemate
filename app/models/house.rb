@@ -1,7 +1,7 @@
 class House < ApplicationRecord
-  has_many :groups
-  has_many :users, through: :mates
+  has_many :groups, dependent: :destroy
   has_many :mates
+  has_many :users, through: :mates
 
   mount_uploader :HouseImage, HouseImageUploader
 

@@ -42,7 +42,8 @@
   </div>
 
   <div class="image">
-    <%= form.label :image %>
+    <%= form.label :image %><br>
+    <%= image_tag(house.HouseImage.thumb.url) if house.HouseImage? %><br>
     <%= form.file_field :HouseImage, id: :house_HouseImage %>
   </div>
 
