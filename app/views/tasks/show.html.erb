@@ -13,13 +13,25 @@
 </p>
 
 <p>
-  <strong>Duedate:</strong>
-  <%= @task.duedate %>
+  <strong>Deadline:</strong>
+  <%= @task.duedate.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Completed:</strong>
   <%= @task.completed ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <%= form_with(model: @task, url: [@house, @group, @task], local: true) do |form| %>
+    <%= form.hidden_field :completed, value: :true %>
+    <%= form.submit "I did it!", class: "btn btn-outline-secondary btn-sm" %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Completed since:</strong>
+  <%= @task.updated_at.strftime("%d/%m/%Y %I:%M%p") if @task.completed %>
 </p>
 
 <button type="button" class="btn btn-outline-secondary">
