@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :houses, through: :mates
   has_many :groups
   has_many :tasks
   has_many :mates
+  has_many :houses, through: :mates
 
   def house_mate?
     mates.any?

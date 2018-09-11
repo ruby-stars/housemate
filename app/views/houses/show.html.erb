@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-
-  <h3><strong>Name:</strong>
-  <%= @house.name %></h3>
-
-</p>
+<h3><%= @house.name %></h3>
 
 <p>
   <strong>This is our house:</strong>
@@ -14,22 +9,14 @@
 </p>
 
 <p>
-  <strong>Street:</strong>
+  <strong>Address:</strong>
   <%= @house.street %>
-</p>
-
-<p>
-  <strong>Number:</strong>
   <%= @house.number %>
 </p>
 
 <p>
-  <strong>Post Code:</strong>
-  <%= @house.postalcode %>
-</p>
-
-<p>
   <strong>City:</strong>
+  <%= @house.postalcode %>
   <%= @house.city %>
 </p>
 
@@ -43,9 +30,16 @@
   <%= @house.house_manager.email %>
 </p>
 
-<%= link_to 'Edit', edit_house_path(@house) if can? :update, @house %> |
-<%= link_to 'Delete House', house_path, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @house %> |
-<%= link_to 'Back', houses_path %>
+<% if can? :update, @house %>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Edit', edit_house_path(@house) %>
+  </button>
+<% end %>
+<% if can? :destroy, @house %>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </button>
+<% end %>
 
 <br>
 
@@ -54,26 +48,34 @@
 <% if can? :manage, Group %>
 <div>
 
-  <h3>This house's groups:</h3>
+  <h4>This house's groups:</h4>
   <%= link_to 'Show all', house_groups_path(@house) %>
 
   <% @house.groups.each do |group| %>
     <div>
-      <strong><%= group.name %></strong>
-      <%= group.about %>
-      <%= link_to 'Show', house_group_path(@house, group) if can? :manage, group %>
+      <strong>
+      <% if can? :manage, group %>
+        <%= link_to group.name, house_group_path(@house, group)  %>
+      <% else %>
+        <%= group.name %>
+      <% end %>
+      </strong>
     </div>
   <% end %>
 </div>
 
 <br>
-<div>
-  <%= link_to 'Create a new group for this house', new_house_group_path(@house, @group) %>
-</div>
+<button type="button" class="btn btn-outline-secondary btn-sm">
+  <%= link_to 'Create New Group', new_house_group_path(@house, @group) %>
+</button>
 
 <% end %>
 
 <br>
-<div>
+<br>
+<button type="button" class="btn btn-outline-secondary">
   <%= link_to 'Back to All Houses', houses_path %>
-</div>
+</button>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Back Home', root_path %>
+</button>

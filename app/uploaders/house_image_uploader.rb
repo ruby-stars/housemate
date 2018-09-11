@@ -15,8 +15,8 @@ class HouseImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
-    # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-    '/images/fallback/' + ['default.png'].compact.join('_')
+    #{}"/images/default/default-image.png"
+    ActionController::Base.helpers.asset_path("/images/default/default-image.png")
   end
 
   # Process files as they are uploaded:
@@ -29,11 +29,11 @@ class HouseImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fill: [200, 200]
+    process resize_to_fill: [250, 250]
   end
 
   version :small_thumb, from_version: :thumb do
-    process resize_to_fill: [20, 20]
+    process resize_to_fill: [50, 50]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
