@@ -27,7 +27,9 @@ class HousesController < ApplicationController
   end
 
   # GET /houses/1/edit
-  def edit; end
+  def edit
+    authorize! :edit, @house, :message => "You are not authorized to edit this house. Sorry!"
+  end
 
   # POST /houses
   # POST /houses.json
