@@ -13,7 +13,7 @@ class Ability
       if user.house_manager?
         can [:read, :create], House
         can [:update, :destroy], House, id: user.mates.pluck(:house_id)
-        can :manage, Group, house_id: user.mates.pluck(:house_id) #house: { id: user.mates.pluck(:house_id) }
+        can :manage, Group, house: { id: user.mates.pluck(:house_id) }
         can :manage, Task
       elsif user.house_mate?
         can [:read, :create], House
