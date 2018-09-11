@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    #authorize! :index, @groups, :message => "You are not authorized to view groups of this house. Sorry!"
   end
 
   def show
