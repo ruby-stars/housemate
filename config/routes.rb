@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
+  get :send_houses_mail, to: 'houses#send_houses_mail', as: :send_houses_mail
 end

@@ -41,6 +41,12 @@
   </button>
 <% end %>
 
+<p>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Join House', :controller => "houses", :action => "send_houses_mail", :id => @house.id  %>
+  </button>
+</p>
+
 <br>
 
 <br>

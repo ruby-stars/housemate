@@ -79,6 +79,17 @@ class HousesController < ApplicationController
     end
   end
 
+
+  def send_houses_mail
+    @house = House.find(params[:id])
+    @user = current_user
+
+    HousesMailer.houses_send(@house, @user).deliver
+    flash[:notice] = "Order has been sent."
+    redirect_to houses_path
+  end
+
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.

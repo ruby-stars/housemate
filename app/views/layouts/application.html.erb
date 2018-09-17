@@ -24,7 +24,7 @@
               </button>
             </li>
             <li>
-              Signed in as: <%= current_user.email %> 
+              Signed in as: <%= current_user.email %>
               <button type="button" class="btn btn-outline-secondary btn-sm">
                 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
               </button>
@@ -55,6 +55,6 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-  
+
   </body>
 </html>
