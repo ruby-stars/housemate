@@ -43,9 +43,9 @@
 
 <br>
 
+<% if (can? :update, @house) && (can? :manage, Group) %> 
+<!-- not the final solution as this will not work for house_mates (once defined) -->
 <br>
-
-<% if can? :manage, Group %>
 <div>
 
   <h4>This house's groups:</h4>
@@ -54,11 +54,7 @@
   <% @house.groups.each do |group| %>
     <div>
       <strong>
-      <% if can? :manage, group %>
-        <%= link_to group.name, house_group_path(@house, group)  %>
-      <% else %>
-        <%= group.name %>
-      <% end %>
+      <%= link_to group.name, house_group_path(@house, group)  %>
       </strong>
     </div>
   <% end %>
@@ -69,9 +65,9 @@
   <%= link_to 'Create New Group', new_house_group_path(@house, @group) %>
 </button>
 
+<br>
 <% end %>
 
-<br>
 <br>
 <button type="button" class="btn btn-outline-secondary">
   <%= link_to 'Back to All Houses', houses_path %>
