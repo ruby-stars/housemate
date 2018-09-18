@@ -5,19 +5,20 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    authorize! :index, @groups
   end
 
   def show
-    authorize! :show, @group, :message => "Test Show"
+    authorize! :show, @group
   end
 
   def new
     @group = Group.new
-    authorize! :new, @group, :message => "Test New"
+    authorize! :new, @group
   end
 
   def edit
-    authorize! :edit, @group, :message => "Test Edit"
+    authorize! :edit, @group
   end
 
   def create
