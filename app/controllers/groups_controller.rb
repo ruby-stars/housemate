@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-    authorize! :index, @groups
+    #authorize! :index, @groups -- error, does not allow for anybody to show all groups
   end
 
   def show
