@@ -1,19 +1,56 @@
 <p id="notice"><%= notice %></p>
 
+<h3>User Profile:</h3>
+
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
+	<%= @user.firstname %> <%= @user.lastname %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>This is me:</strong>
+  <br>
+  <%#= image_tag @user.avatar.url%>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @user.nickname %>
+</p>
+
+<p>
+  <strong>E-Mail:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>About:</strong>
-  <%= @user.about %>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <strong>Birthday:</strong>
+  <%= @user.birthday %>
+</p>
+
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Edit', edit_user_registration_path(@user) %>
+</button>
+
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Delete', user_registration_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+</button>
+
+<br>
+
+<br>
+<div>
+  <h4>My Houses:</h4>
+
+  <% @user.houses.each do |house| %>
+    <div>
+      <strong>
+      <%= house.name %>
+      </strong>
+    </div>
+  <% end %>
+</div>

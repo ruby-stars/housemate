@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
+  get 'users/:id', to: 'users#show', as: 'user'
 end
