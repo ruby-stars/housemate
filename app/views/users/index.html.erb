@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Nickname</th>
+      <th>Name</th>
+      <th>Sign-Ins</th>
+      <th>Last Sign-In</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%#= link_to (image_tag house.HouseImage.small_thumb.url), house %></td>
+        <td><%= user.id %>
+        <td><%= user.nickname %></td>
+        <td><%= user.firstname %> <%= user.lastname %></td>
+        <td><%= user.sign_in_count %></td>
+        <td><%= user.last_sign_in_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

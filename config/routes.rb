@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'users/:id', to: 'users#show', as: 'user'
+  get 'users', to: 'users#index', as: 'users'
 end
