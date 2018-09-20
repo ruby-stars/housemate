@@ -203,7 +203,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap (~> 4.0.0)
+  bootstrap (~> 4.1.2)
   cancancan (~> 2.0)
   carrierwave (~> 1.2.2)
   coffee-rails (~> 4.2)
