@@ -18,7 +18,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%#= link_to (image_tag house.HouseImage.small_thumb.url), house %></td>
+        <td><%= link_to (image_tag user.avatar.small_thumb.url), user if user.avatar? %></td>
         <td><%= user.id %>
         <td><%= user.nickname %></td>
         <td><%= user.firstname %> <%= user.lastname %></td>

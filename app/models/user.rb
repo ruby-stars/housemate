@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :mates
   has_many :houses, through: :mates
 
+  mount_uploader :avatar, AvatarUploader
+
   def house_mate?
     mates.any?
   end

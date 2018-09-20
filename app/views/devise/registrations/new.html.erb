@@ -30,6 +30,12 @@
     <%= f.text_area :bio, autofocus: true %>
   </div>
 
+  <div class="image">
+    <%= f.label :avatar %><br>
+    <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %><br>
+    <%= f.file_field :avatar, id: :avatar %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

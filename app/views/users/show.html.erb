@@ -9,7 +9,7 @@
 <p>
   <strong>This is me:</strong>
   <br>
-  <%#= image_tag @user.avatar.url%>
+  <%= image_tag @user.avatar.url if @user.avatar?%>
 </p>
 
 <p>

@@ -30,6 +30,12 @@
     <%= f.text_area :bio, autofocus: true %>
   </div>
 
+  <div class="image">
+    <%= f.label :avatar %><br>
+    <%= image_tag(user.avatar.thumb.url) if user.avatar? %><br>
+    <%= f.file_field :avatar, id: :user_avatar %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
