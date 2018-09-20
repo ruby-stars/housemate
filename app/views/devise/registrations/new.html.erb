@@ -9,6 +9,28 @@
   </div>
 
   <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
