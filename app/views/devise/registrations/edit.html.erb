@@ -32,7 +32,7 @@
 
   <div class="image">
     <%= f.label :avatar %><br>
-    <%= image_tag(user.avatar.thumb.url) if user.avatar? %><br>
+    <%#= image_tag(resource.avatar.thumb.url) if resource.avatar? %><br>
     <%= f.file_field :avatar, id: :user_avatar %>
   </div>
 
@@ -66,6 +66,6 @@
 
 <h3>Delete my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
