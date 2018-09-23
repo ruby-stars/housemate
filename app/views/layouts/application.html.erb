@@ -39,6 +39,9 @@
             <li>
               <%= link_to "My Profile", user_path(current_user) %>
             </li>
+            <li>
+              <%= link_to 'My Dashboard', user_dashboard_path(current_user) %>
+            </li>
           </ul>
 
         <% else %>

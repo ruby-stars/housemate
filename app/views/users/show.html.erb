@@ -29,7 +29,7 @@
 
 <p>
   <strong>Birthday:</strong>
-  <%= @user.birthday %>
+  <%= @user.birthday.strftime("%d %b %Y") if @user.birthday? %>
 </p>
 
 <button type="button" class="btn btn-outline-secondary">
@@ -41,16 +41,7 @@
 </button>
 
 <br>
-
 <br>
 <div>
-  <h4>My Houses:</h4>
-
-  <% @user.houses.each do |house| %>
-    <div>
-      <strong>
-      <%= house.name %>
-      </strong>
-    </div>
-  <% end %>
+  <h4><%= link_to 'Go to My Dashboard', user_dashboard_path(@user) %></h4>
 </div>

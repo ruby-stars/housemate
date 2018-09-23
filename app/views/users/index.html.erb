@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>User Administration:</h1>
 
 <table>
   <thead>
@@ -9,6 +9,8 @@
       <th>ID</th>
       <th>Nickname</th>
       <th>Name</th>
+      <th>E-Mail</th>
+      <th>Birthday</th>
       <th>Sign-Ins</th>
       <th>Last Sign-In</th>
       <th colspan="3"></th>
@@ -22,6 +24,8 @@
         <td><%= user.id %>
         <td><%= user.nickname %></td>
         <td><%= user.firstname %> <%= user.lastname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.birthday.strftime("%d %b %Y") if user.birthday? %></td>
         <td><%= user.sign_in_count %></td>
         <td><%= user.last_sign_in_at %></td>
       </tr>
