@@ -1,43 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h3>User Profile:</h3>
+<h5>My Profile:<br>
+  (<%= @user.email %>)</h5>
+<br>
 
-<p>
-	<%= @user.firstname %> <%= @user.lastname %>
-</p>
-
-<p>
-  <strong>This is me:</strong>
-  <br>
-  <%= image_tag @user.avatar.url if @user.avatar?%>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @user.nickname %>
-</p>
-
-<p>
-  <strong>E-Mail:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday.strftime("%d %b %Y") if @user.birthday? %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-8 field">
+          <strong>Nickname:</strong><br>
+          <%= @user.nickname %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 field">
+          <strong>Full Name:</strong><br>
+          <%= @user.firstname %> <%= @user.lastname %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 field">
+          <strong>Birthday:</strong><br>
+          <%= @user.birthday.strftime("%d %b %Y") if @user.birthday? %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 field">
+            <strong>Bio:</strong><br>
+            <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 image">
+      <strong>This is me:</strong><br>
+      <%= image_tag @user.avatar.thumb.url if @user.avatar?%>
+    </div>
+  </div>
+</div>
+<br>
 
 <button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Edit', edit_user_registration_path(@user) %>
-</button>
-
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Delete', user_registration_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
 </button>
 
 <br>
