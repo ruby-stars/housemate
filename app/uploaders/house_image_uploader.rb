@@ -16,7 +16,7 @@ class HouseImageUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
     #{}"/images/default/default-image.png"
-    ActionController::Base.helpers.asset_path("/images/default/default-image.png")
+    ActionController::Base.helpers.asset_path("default/default-image.png")
   end
 
   # Process files as they are uploaded:
