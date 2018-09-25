@@ -1,19 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h5>My Profile:<br>
+  (<%= @user.email %>)</h5>
+<br>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-8 field">
+          <strong>Nickname:</strong><br>
+          <%= @user.nickname %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 field">
+          <strong>Full Name:</strong><br>
+          <%= @user.firstname %> <%= @user.lastname %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-8 field">
+          <strong>Birthday:</strong><br>
+          <%= @user.birthday.strftime("%d %b %Y") if @user.birthday? %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 field">
+            <strong>Bio:</strong><br>
+            <%= @user.bio %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 image">
+      <strong>This is me:</strong><br>
+      <%= image_tag @user.avatar.thumb.url %>
+    </div>
+  </div>
+</div>
+<br>
 
-<p>
-  <strong>About:</strong>
-  <%= @user.about %>
-</p>
+<button type="button" class="btn btn-outline-secondary">
+  <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
+</button>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<br>
+<br>
+<div>
+  <h4><%= link_to 'Go to My Dashboard', user_dashboard_path(@user) %></h4>
+</div>

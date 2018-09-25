@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @user.nickname %>'s Housemate Dashboard:</h1>
+
+<h3>Houses:</h3>
+<% if @houses.length == 0 %>
+  <p>You have no house yet :(</p>
+<% else %>
+  <div class="container-fluid">
+    <div class="row">
+      <% @houses.each do |house| %>
+        <div class="col-4">
+          <%= link_to (image_tag house.HouseImage.thumb.url), house %>
+          <br></br>
+          <h6><%= link_to house.name, house %></h6>
+          <p>You are
+            <% if @user.house_manager? %> the House Manager </p>
+            <% elsif @user.house_mate? %> a House Mate</p>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<h3>Tasks:</h3>
+<% if @tasks.length == 0 %>
+  <p>You have no tasks yet :(</p>
+<% else %>
+  <div class="container-fluid">
+    <div class="row">
+      <% @tasks.each do |task| %>
+        <div class="col-3">
+          <h5><%= link_to task.name, house_group_task_path(task.group.house, task.group, task) %></h5>
+          <p>In Group: <%= link_to task.group.name, house_group_path(task.group.house, task.group) %><br> In House: <%= link_to task.group.house.name, house_path(task.group.house) %></p>
+          <p>Due on <%= task.duedate.strftime("%a, %d %b %Y") %></p>
+          <p>Days left: <%= time_ago_in_words(task.duedate) %></p>
+          <p>Completed: <%= task.completed ? 'Yes' : 'No' %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
