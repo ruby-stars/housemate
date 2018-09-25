@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    authorize! :new, @group
+    #authorize! :new, @group -- to be fixed, doesn't work, nobody can create new groups
   end
 
   def edit
