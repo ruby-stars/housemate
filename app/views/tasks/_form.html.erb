@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :duedate %>
-    <%= form.date_select :duedate, id: :task_duedate %>
+    <%= form.text_field :duedate, autocomplete: 'off', value: Date.today, data:{ provide: 'datepicker', 'date-format' => "dd/mm/yyyy", 'date-autoclose' => true, 'date-days-of-week-highlighted' => [0,6], 'date-orientation' => "bottom left", 'date-today-highlight' => true, 'date-week-start' => 1, 'date-today-btn' => true } %>
   </div>
 
   <% if params[:action] == "edit" %>
