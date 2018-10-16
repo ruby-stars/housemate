@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180919163831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "HouseImage"
+    t.string "house_manager"
   end
 
   create_table "mates", id: false, force: :cascade do |t|

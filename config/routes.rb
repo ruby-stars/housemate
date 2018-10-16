@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
   get 'users', to: 'users#index', as: 'users'
   get 'users/:id/my_dashboard', to: 'users#dashboard', as: 'user_dashboard'
+  get :send_houses_mail, to: 'houses#send_houses_mail', as: :send_houses_mail
 end
