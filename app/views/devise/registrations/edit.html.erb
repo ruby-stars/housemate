@@ -1,43 +1,89 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h5>Change User Info:</h5><br>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-8 field">
+            <%= f.label :nickname %><br />
+            <%= f.text_field :nickname, autofocus: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 field">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :firstname, autofocus: true %>
+          </div>
+          <div class="col-6 field">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :lastname, autofocus: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 field">
+            <%= f.label :birthday %><br />
+            <%= f.date_select :birthday, start_year: 1920, end_year: (Date.today.year - 18), use_short_month: true, order: [:day, :month, :year], prompt: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 field">
+            <%= f.label :bio %><br />
+            <%= f.text_area :bio, autofocus: true %>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image">
+        <%= image_tag(resource.avatar.thumb.url) if resource.avatar? %><br>
+        <%= f.file_field :avatar, id: :user_avatar %>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <h5>Change Login Details:</h5><br>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+      <div class="col-3 field">
+        <%= f.label :new_password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+        <!--<% if @minimum_password_length %><br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>-->
+      </div>
+      <div class="col-3 field">
+        <%= f.label :confirm_new_password %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <br>
+  <br>
+  <h5 class="prompt"> Enter current password to confirm changes:</h5>
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.submit "Save changes", class: 'actions' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<br>
+<br>
+<h5>Delete my account</h5>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

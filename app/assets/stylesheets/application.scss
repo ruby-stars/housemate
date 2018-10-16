@@ -12,13 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
  */
 
 @import "bootstrap";
-
-.alert {
-  color: red;
-}
 
 body {
   background-color: #F5F5F5;
@@ -53,6 +50,10 @@ a {
   }
 
   &:hover {
-    color: white;
+    color: #334ACC;
   }
+}
+
+.prompt {
+  color: #334ACC;
 }

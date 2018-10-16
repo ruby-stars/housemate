@@ -5,21 +5,26 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    #authorize! :index, @groups -- error, does not allow for anybody to show all groups
   end
 
-  def show; end
+  def show
+    authorize! :show, @group
+  end
 
   def new
     @group = Group.new
+    #authorize! :new, @group -- to be fixed, doesn't work, nobody can create new groups
   end
 
-  def edit; end
+  def edit
+    authorize! :edit, @group
+  end
 
   def create
     @group = Group.new(group_params)
     @house.groups << @group
     current_user.groups << @group
-    #authorize! :create, @group (there's an error message but group is saving anyway)
 
     respond_to do |format|
       if @group.save

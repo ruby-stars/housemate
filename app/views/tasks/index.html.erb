@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to task.name, house_group_task_path(@house, @group, task) %></td>
         <td><%= task.user.email %></td>
-        <td><%= task.duedate.strftime("%d/%m/%Y") %></td>
+        <td><%= task.duedate.strftime("%d %b %Y") %></td>
         <% if task.completed %>
           <td>Done</td>
         <% else %>
