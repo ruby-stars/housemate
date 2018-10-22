@@ -7,6 +7,7 @@
 				<br></br>
 				<h6><%= link_to house.name, house %></h6>
 				<p>Located in: <%= house.city %></p>
+				<p>Managed by: <%= house.house_manager.nickname %></p>
 				<button type="button" class="btn btn-outline-secondary btn-sm">
 					<%= link_to 'Show House', house %>
 				</button>
