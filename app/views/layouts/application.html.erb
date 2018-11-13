@@ -6,23 +6,25 @@
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"
+    <nav class="navbar navbar-expand-lg"
     <div class="row">
       <div class= "col-4">
-        <img src=“” class="d-inline-block align-top" alt="logo">
-        <h1><%= link_to "Housemate", root_path %></h1>
+        <h1>
+          <%= image_tag "default/small_thumb_default-image.png" %>
+          <%= link_to "Housemate", root_path %>
+        </h1>
       </div>
 
       <div class="col-8">
         <% if user_signed_in? %>
-          <div class="nav navbar-nav ml-auto">
-            <div class="nav-item dropdown">
+          <div class="nav navbar-nav h3">
+            <div class="nav-item dropdown ml-auto dropdown-toggle-split">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Hi,
               <% if current_user.nickname? %>
@@ -31,18 +33,18 @@
                 <%= current_user.email %>
               <% end %>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <p><%= link_to "My Profile", user_path(current_user) %></p>
-                <p><%= link_to 'My Dashboard', user_dashboard_path(current_user) %></p>
-                <p><%= link_to "New House", new_house_path %>
-                </p>
-                <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
-            </div>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <li class="h4"><%= link_to "My Profile", user_path(current_user) %></li>
+               <li class="h4"><%= link_to 'My Dashboard', user_dashboard_path(current_user) %></li>
+                <li class="h4"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <div class="dropdown-divider"></div>
+                <li class="h4"><%= link_to "New House", new_house_path %></li>
+            </ul>
             </div>
           </div>
         <% else %>
         <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto h3">
             <li class="nav-item nav-link">
                <%= link_to "About", root_path %>
             <li class="nav-item nav-link">

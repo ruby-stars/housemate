@@ -28,8 +28,8 @@ p {
 }
 
 .navbar {
-  padding: 0rem;
-  color: red;
+  padding: 1rem;
+  background-color: #009999;
   font-family: 'Comfortaa', cursive;
 }
 
@@ -39,22 +39,22 @@ p {
 }*/
 
 .navbar h1 a {
-  color: #334ACC;
+  color: #404040;
   text-decoration: none;
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #212121;
-  }
+  color: #606060;
 
   &:hover {
-    color: #334ACC;
+    color: white;
   }
 }
 
 .prompt {
   color: #334ACC;
+}
+
+.dropdown-menu {
+  background-color: #66c1c1;
 }
