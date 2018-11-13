@@ -21,6 +21,7 @@ body {
   background-color: #F5F5F5;
 }
 
+
 p {
   font-family: 'Lato', sans-serif;
   color: #282623;
@@ -28,14 +29,14 @@ p {
 
 .navbar {
   padding: 0rem;
-  color: #334ACC;
+  color: red;
   font-family: 'Comfortaa', cursive;
 }
 
-.navbar li {
+/*.navbar li {
   color: #334ACC;
-  text-align: right;
-}
+  display: inline;
+}*/
 
 .navbar h1 a {
   color: #334ACC;
