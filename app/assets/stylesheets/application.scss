@@ -21,39 +21,40 @@ body {
   background-color: #F5F5F5;
 }
 
+
 p {
   font-family: 'Lato', sans-serif;
   color: #282623;
 }
 
 .navbar {
-  padding: 0rem;
-  color: #334ACC;
+  padding: 1rem;
+  background-color: #009999;
   font-family: 'Comfortaa', cursive;
 }
 
-.navbar li {
+/*.navbar li {
   color: #334ACC;
-  text-align: right;
-}
+  display: inline;
+}*/
 
 .navbar h1 a {
-  color: #334ACC;
+  color: #404040;
   text-decoration: none;
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #212121;
-  }
+  color: #606060;
 
   &:hover {
-    color: #334ACC;
+    color: white;
   }
 }
 
 .prompt {
   color: #334ACC;
+}
+
+.dropdown-menu {
+  background-color: #66c1c1;
 }
