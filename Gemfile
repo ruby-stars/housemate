@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.8'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
 end
 
