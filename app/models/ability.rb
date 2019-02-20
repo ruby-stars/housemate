@@ -7,11 +7,11 @@ class Ability
     # permissions for every user, even if not logged in, go here
     if user.present?  # additional permissions for logged in users
       can [:read, :create], House
+      can :manage, User, id: user.id
+      cannot :index, User
       if user.house_mate?
         can :manage, Group, house: { id: user.mates.pluck(:house_id) } #nested under house
         can :manage, Task #nested under group - if group not allowed, task is not allowed
-        can :manage, User, id: user.id
-        cannot :index, User
         if user.house_manager?
           can :manage, House, id: user.mates.pluck(:house_id)
           # if user.admin?
