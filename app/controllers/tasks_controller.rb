@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource :group
+  load_and_authorize_resource :task, through: :group
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_group
   before_action :set_house
