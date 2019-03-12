@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.5.3'
 gem 'bootstrap', '~> 4.1.2'
 gem 'bootstrap-datepicker-rails'
 gem 'cancancan', '~> 2.0'
