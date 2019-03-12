@@ -1,0 +1,15 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.3
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rspec
