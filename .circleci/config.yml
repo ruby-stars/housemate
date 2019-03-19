@@ -9,10 +9,10 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.3-node
-      environment:
-        PGHOST: localhost
-        PGUSER: housemate
-        RAILS_ENV: test
+        environment:
+          PGHOST: localhost
+          PGUSER: housemate
+          RAILS_ENV: test
       - image: postgres:9.5
         environment:
           POSTGRES_USER: housemate
