@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.5.3'
 gem 'bootstrap', '~> 4.1.2'
 gem 'bootstrap-datepicker-rails'
 gem 'cancancan', '~> 2.0'
@@ -26,6 +27,9 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
 end
 
 group :development do

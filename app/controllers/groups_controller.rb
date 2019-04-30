@@ -1,24 +1,23 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource :house
+  load_and_authorize_resource :group, through: :house
+  
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :set_house
 
   def index
     @groups = Group.all
-    #authorize! :index, @groups -- error, does not allow for anybody to show all groups
   end
 
   def show
-    authorize! :show, @group
   end
 
   def new
     @group = Group.new
-    #authorize! :new, @group -- to be fixed, doesn't work, nobody can create new groups
   end
 
   def edit
-    authorize! :edit, @group
   end
 
   def create

@@ -1,0 +1,25 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    #working_directory: ~/housemate-app
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.3-node
+        environment:
+          PGHOST: localhost
+          PGUSER: housemate
+          RAILS_ENV: test
+      - image: postgres:9.5
+        environment:
+          POSTGRES_USER: housemate
+          POSTGRES_DB: housemate_test
+          POSTGRES_PASSWORD: ""
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rspec
