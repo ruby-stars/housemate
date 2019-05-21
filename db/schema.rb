@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20190521171605) do
     t.string "HouseImage"
   end
 
-  create_table "houses_users", id: false, force: :cascade do |t|
-    t.bigint "house_id"
-    t.bigint "user_id"
-    t.index ["house_id"], name: "index_houses_users_on_house_id"
-    t.index ["user_id"], name: "index_houses_users_on_user_id"
-  end
-
   create_table "mates", id: false, force: :cascade do |t|
     t.integer "house_id"
     t.integer "user_id"
