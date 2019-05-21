@@ -5,7 +5,10 @@
 version: 2
 jobs:
   build:
-    #working_directory: ~/housemate-app
+    branches:
+      only:
+        - master
+        - develop
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.3-node
