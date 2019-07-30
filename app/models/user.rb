@@ -18,7 +18,11 @@ class User < ApplicationRecord
     mates.any? {|mate| mate.house_manager? }
   end
 
-  def managed_house
-    mates.find {|mate| mate.house_manager?}.house
+  def managed_houses
+    array = []
+    mates.each do |mate|
+      array << mate.house if mate.house_manager?
+    end
+    array
   end
 end
