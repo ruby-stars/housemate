@@ -9,4 +9,14 @@ class House < ApplicationRecord
   	mates.find {|mate| mate.house_manager?}.user
   end
 
+  def house_mates
+    array = []
+    mates.each do |mate|
+      array << mate.user
+    end
+    array
+  end
+
+
+
 end
