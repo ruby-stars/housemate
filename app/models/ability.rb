@@ -13,7 +13,7 @@ class Ability
         can :manage, Group, house: { id: user.mates.pluck(:house_id) } #nested under house
         can :manage, Task #nested under group - if group not allowed, task is not allowed
         if user.house_manager?
-          can :manage, House, id: user.mates.pluck(:house_id)
+          can :manage, House, id: user.managed_house.id #not working if user manages more than 1 house
           # if user.admin?
           #   can :manage, :all
           # end

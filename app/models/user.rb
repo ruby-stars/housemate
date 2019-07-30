@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def house_manager?
     mates.any? {|mate| mate.house_manager? }
   end
+
+  def managed_house
+    mates.find {|mate| mate.house_manager?}.house
+  end
 end
