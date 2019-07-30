@@ -16,5 +16,5 @@ class House < ApplicationRecord
     end
     array
   end
-  
+
 end
