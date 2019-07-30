@@ -32,7 +32,7 @@
   <% @house.house_mates.each do |mate| %>
     <ul>
       <li class=<%= mate == @house.house_manager ? "font-weight-bold" : "font-weight-normal" %> >
-        <%= mate.email %>
+        <%= mate.nickname %>
       </li>
     </ul>
   <% end %>
