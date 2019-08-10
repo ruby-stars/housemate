@@ -66,8 +66,8 @@
   </div>
 <% end %>
 
-  <section id="house-groups">
   <% if (can? :update, @house) && (can? :manage, Group) %> 
+  <section id="house-groups">
   <!-- not the final solution as this will not work for house_mates (once defined) -->
     <div class="row padded">
       <div class="col-md-6 offset-md-3 text-center">
@@ -90,8 +90,8 @@
     <div class="centered-button">
       <%= link_to 'Show all', house_groups_path(@house), class: "cta-btn" %>
     </div>
-  <% end %>
   </section><!-- end #house-groups-->
+  <% end %>
 
 </section><!-- end #house -->
 
