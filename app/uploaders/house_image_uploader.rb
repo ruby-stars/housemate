@@ -33,7 +33,7 @@ class HouseImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fill: [250, 250]
+    process resize_to_fill: [400, 300]
   end
 
   version :small_thumb, from_version: :thumb do

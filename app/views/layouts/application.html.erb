@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>Housemate</title>
-    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Comfortaa|Lato','application.css' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700','application' %>
+    <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.6.0/css/all.css' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <%= csrf_meta_tags %>
 
@@ -12,65 +14,72 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg"
-    <div class="row">
-      <div class= "col-4">
-        <h1>
-          <%= image_tag "default/small_thumb_default-image.png" %>
-          <%= link_to "Housemate", root_path %>
-        </h1>
-      </div>
 
-      <div class="col-8">
-        <% if user_signed_in? %>
-          <div class="nav navbar-nav h3">
-            <div class="nav-item dropdown ml-auto dropdown-toggle-split">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hi,
-              <% if current_user.nickname? %>
-                <%= current_user.nickname %>
-              <% else %>
-                <%= current_user.email %>
-              <% end %>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <li class="h4"><%= link_to "My Profile", user_path(current_user) %></li>
-               <li class="h4"><%= link_to 'My Dashboard', user_dashboard_path(current_user) %></li>
-                <li class="h4"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                <div class="dropdown-divider"></div>
-                <li class="h4"><%= link_to "New House", new_house_path %></li>
-            </ul>
-            </div>
-          </div>
-        <% else %>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto h3">
-            <li class="nav-item nav-link">
-               <%= link_to "About", root_path %>
-            <li class="nav-item nav-link">
-                <%= link_to "Sign Up", new_user_registration_path %>
-            </li>
-            <li class="nav-item nav-link">
-             <%= link_to "Sign In", new_user_session_path %>
-            </li>
+    <!--==========================
+    Header
+    ============================-->
+    <header id="header">
+      <div class="container-fluid">
+
+        <div id="logo" class="pull-left">
+          <h1>
+            <%= image_tag "default/small_thumb_default-image.png" %>
+            <%= link_to "Housemate", root_path, class: "scrollto" %>
+          </h1>
+        </div>
+
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+<!--             <li class="menu-active"><a href="#intro">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li> -->
+            <% if user_signed_in? %>
+              <li class="menu-has-children">
+                <a href="">
+                  Hi,
+                  <% if current_user.nickname? %>
+                    <%= current_user.nickname %>
+                  <% else %>
+                    <%= current_user.email %>
+                  <% end %>
+                </a>
+                <ul>
+                  <li><%= link_to "My Profile", user_path(current_user) %></li>
+                  <li><%= link_to 'My Dashboard', user_dashboard_path(current_user) %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "About", root_path %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %>
           </ul>
-        <% end %>
+        </nav><!-- #nav-menu-container -->
       </div>
-    </div>
-  </nav>
+    </header><!-- #header -->
 
-<br>
-
-    <div class="container">
-      <% if alert %>
-        <p class="alert alert-danger alert-dismissible fade show"><%= alert %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </p>
-      <% end %>
+    <!--==========================
+    Alert
+    ============================-->
+    <% if alert %>
+      <p class="alert alert-danger alert-dismissible fade show"><%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% end %><!-- Alert -->
+    
+    <section id="main">
       <%= yield %>
-    </div>
+    </section>
+
+    <!--=========================
+    Back to Top button
+    ==========================-->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   </body>
 </html>

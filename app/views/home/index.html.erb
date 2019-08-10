@@ -1,29 +1,102 @@
+<!--==========================
+  Portfolio Section
+============================-->
+<section id="portfolio"  class="section-bg" >
+  <div class="container">
 
-<div class="container-fluid">
-	<div class="row">
-		<% @last_houses.each do |house| %>
-			<div class="col-4">
-				<%= link_to (image_tag house.HouseImage.thumb.url), house%>
-				<br></br>
-				<h6><%= link_to house.name, house %></h6>
-				<p>Located in: <%= house.city %></p>
-				<p>Managed by: <%= house.house_manager.nickname %></p>
-				<button type="button" class="btn btn-outline-secondary btn-sm">
-					<%= link_to 'Show House', house %>
-				</button>
-			</div>
-		<% end %>
-	</div>
-</div>
+    <header class="section-header">
+      <h3 class="section-title">Houses on Housemate</h3>
+    </header>
 
-<br>
+<!--     <div class="row">
+      <div class="col-lg-12">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
+      </div>
+    </div> -->
 
-<div>
-  <button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Show All Houses', houses_path %>
-  </button>
+    <div class="row portfolio-container">
+      <% @last_houses.each do |house| %>
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+          <div class="portfolio-wrap">
+            <figure>
+              <%= link_to (image_tag house.HouseImage.thumb.url), house, class: "img-fluid"%>
+              <!-- <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+              <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a> -->
+            </figure>
 
-  <button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Create New House', new_house_path %>
-  </button>
-</div>
+            <div class="portfolio-info">
+              <h4><%= link_to house.name, house %></h4>
+              <% if house.city %>
+                <p>This home is in <%= house.city %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+    <div class="centered-button">
+      <%= link_to 'Show All Houses', houses_path, class: "btn-get-started scrollto" %>
+      <%= link_to 'Create New House', new_house_path, class: "btn-get-started scrollto" %>
+    </div>
+    <% end %>
+  </div>
+</section><!-- #portfolio -->
+
+
+<!--==========================
+  Call To Action Section
+============================-->
+<% if !user_signed_in? %>
+<section id="call-to-action" class="wow fadeIn">
+  <div class="container text-center">
+    <h3>Join our community</h3>
+    <p>Thousands of students, young professionals, singles, couples and families live in shared accommodation around the world. Discover how <strong>Housemate</strong> can make shared living easier for you and join our community by registering your home.</p>
+    <%= link_to 'Join Housemate', new_user_registration_path, class: "cta-btn" %>
+  </div>
+</section><!-- #call-to-action -->
+<% end %>
+
+<!--==========================
+  Facts Section
+============================-->
+<section id="facts"  class="wow fadeIn">
+  <div class="container">
+
+    <header class="section-header">
+      <h3>Facts</h3>
+      <p>Our community keeps growing with many already registered. Come join us as well!</p>
+    </header>
+
+    <div class="row counters">
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up"><%= @houses.count %></span>
+        <p>Houses</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up"><%= @groups.count %></span>
+        <p>Groups</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up"><%= @tasks.count %></span>
+        <p>Tasks</p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+        <span data-toggle="counter-up"><%= @mates.count %></span>
+        <p>Housemates</p>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- #facts -->
+
