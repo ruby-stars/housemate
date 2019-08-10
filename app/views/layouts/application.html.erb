@@ -72,7 +72,10 @@
       </p>
     <% end %><!-- Alert -->
     
-    <section id="main">
+    <% if !is_index? %>
+      <% section_class = "container" %>
+    <%end %>
+    <section id="main" class=<%= section_class %> >
       <%= yield %>
     </section>
 

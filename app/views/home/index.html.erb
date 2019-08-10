@@ -31,7 +31,7 @@
 
             <div class="portfolio-info">
               <h4><%= link_to house.name, house %></h4>
-              <% if house.city %>
+              <% if !house.city.empty? %>
                 <p>This home is in <%= house.city %></p>
               <% end %>
             </div>
