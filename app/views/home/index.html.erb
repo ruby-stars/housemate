@@ -41,8 +41,8 @@
     </div>
     <% if user_signed_in? %>
     <div class="centered-button">
-      <%= link_to 'Show All Houses', houses_path, class: "btn-get-started scrollto" %>
-      <%= link_to 'Create New House', new_house_path, class: "btn-get-started scrollto" %>
+      <%= link_to 'Show All Houses', houses_path, class: "btn-get-started" %>
+      <%= link_to 'Create New House', new_house_path, class: "btn-get-started" %>
     </div>
     <% end %>
   </div>
@@ -56,8 +56,8 @@
 <section id="call-to-action" class="wow fadeIn">
   <div class="container text-center">
     <h3>Join our community</h3>
-    <p>Thousands of students, young professionals, singles, couples and families live in shared accommodation around the world. Discover how <strong>Housemate</strong> can make shared living easier for you and join our community by registering your home.</p>
-    <%= link_to 'Join Housemate', new_user_registration_path, class: "cta-btn" %>
+    <p>Thousands of students, young professionals, singles, couples and families live in shared accommodation around the world. Discover how <strong>HouseMate</strong> can make shared living easier for you and join our community by registering your home.</p>
+    <%= link_to 'Join HouseMate', new_user_registration_path, class: "cta-btn" %>
   </div>
 </section><!-- #call-to-action -->
 <% end %>
