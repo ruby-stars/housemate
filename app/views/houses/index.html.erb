@@ -21,7 +21,7 @@
         <td><%= link_to house.name, house %></td>
         <td><%= house.street %> <%= house.number %></td>
         <td><%= house.postalcode %> <%= house.city %></td>
-        <td><%= house.house_manager.email%></td>
+        <td><%= house.house_manager.nickname%></td>
         <td><%= link_to 'Edit', edit_house_path(house) if can? :update, house %></td>
       </tr>
     <% end %>

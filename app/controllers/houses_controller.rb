@@ -77,6 +77,21 @@ class HousesController < ApplicationController
     end
   end
 
+  def join
+    @house = House.find(params[:id])
+    @mate = Mate.new(user: current_user, house: @house)
+
+    respond_to do |format|
+      if @mate.save
+        format.html { redirect_to @house, notice: 'Congrats! You have joined this house successfully.' }
+        format.json { render :show, status: :ok, location: @house }
+      else
+        format.html { redirect_to @house, notice: 'Something went wrong' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

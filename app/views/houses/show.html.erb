@@ -26,9 +26,25 @@
 </p>
 
 <p>
-  <strong>House Manager:</strong>
-  <%= @house.house_manager.email %>
+  <strong>House Mates:</strong>
 </p>
+<p>
+  <% @house.house_mates.each do |mate| %>
+    <ul>
+      <li class=<%= mate == @house.house_manager ? "font-weight-bold" : "font-weight-normal" %> >
+        <%= mate.nickname %>
+      </li>
+    </ul>
+  <% end %>
+</p>
+
+<% if !(@house.house_mates.include?(current_user)) %>
+  <button type="button" class="btn btn-outline-secondary">
+    <%= link_to 'Join', join_house_path, method: :patch %>
+  </button>
+<% end %>
+
+<br>
 
 <% if can? :update, @house %>
   <button type="button" class="btn btn-outline-secondary">
