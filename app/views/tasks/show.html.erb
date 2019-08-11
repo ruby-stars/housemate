@@ -1,50 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @task.name %></h3>
+<section id="task">
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+  <div class="row">
+    <div class="col-md-3 offset-md-9 text-right">
+      <% if can? :manage, @group %>
+          <%= link_to 'Edit', edit_house_group_task_path(@house, @group, @task), class: "btn-action" %>
+          <%= link_to 'Delete', house_group_task_path(@house, @group, @task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-action" %>
+      <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @task.user.nickname %>
-</p>
+  <div class="row text-center padded">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-tasks"></i>
+          <h5><%= @task.name %></h5>
+        </div>
+        <div class="card-body">
+          <div class="padded">
+            <i class="far fa-user"></i>
+            <h5 class="card-title"><%= @task.user.nickname %></h5>
+          </div>
+          <p class="card-text">
+            <%= @task.description %>
+          </p>
+        </div>
+        <div class="card-footer text-muted row no-row-margin">
+          <% if @task.completed %>
+            <div class="col-md-8 offset-md-2 text-center">
+              Completed since <%= @task.updated_at.strftime("%d %b %Y %I:%M%p") %>
+            </div>
+            <div class="col-md-2 text-right completed">
+              <i class="far fa-check-circle"></i>
+            </div>
+          <% else %>
+            <div class="col-md-8 offset-md-2 text-center">
+              Deadline: <%= @task.duedate.strftime("%d %b %Y") %>
+            </div>
+            <div class="col-md-2 text-right complete-task">
+              <%= form_with(model: @task, url: [@house, @group, @task], local: true) do |form| %>
+                <%= form.hidden_field :completed, value: :true %>
+                <%= button_tag(type:'submit', data: { confirm: 'Have you really done this?' }) do %>
+                  <i class="far fa-check-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.duedate.strftime("%d %b %Y") %>
-</p>
+</section>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed ? 'Yes' : 'No' %>
-</p>
-
-<p>
-  <%= form_with(model: @task, url: [@house, @group, @task], local: true) do |form| %>
-    <%= form.hidden_field :completed, value: :true %>
-    <%= form.submit "I did it!", class: "btn btn-outline-secondary btn-sm" %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Completed since:</strong>
-  <%= @task.updated_at.strftime("%d/%m/%Y %I:%M%p") if @task.completed %>
-</p>
-
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Edit', edit_house_group_task_path(@house, @group, @task) %>
-</button>
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Delete', house_group_task_path(@house, @group, @task), method: :delete, data: { confirm: 'Are you sure?' }  %>
-</button>
-<br>
-<br>
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Back to All Tasks', house_group_tasks_path %>
-</button>
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Back to Group', house_group_path(@house, @group) %>
-</button>
+<div class="centered-button">
+  <%= link_to 'Back to All Tasks', house_group_tasks_path, class: "btn-get-started" %>
+  <%= link_to 'Back To Group', house_group_path(@house, @group), class: "btn-get-started" %>
+</div>
