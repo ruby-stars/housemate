@@ -10,16 +10,6 @@
   padding: 10px;
 }
 
-#sub-items {
-  background: linear-gradient(rgba(0, 153, 153, 0.6), rgba(0, 0, 0, 0.1));
-  background-size: cover;
-  padding: 60px;
-}
-
-#sub-items .centered-button {
-  text-align: center;
-}
-
 .housemate-list {
   list-style: none;
 }
@@ -41,9 +31,18 @@
 
 /* sub-items Section
 --------------------------------*/
+#sub-items {
+  background: linear-gradient(rgba(0, 153, 153, 0.6), rgba(0, 0, 0, 0.1));
+  background-size: cover;
+  padding: 60px;
+}
 
 #sub-items .box {
   margin-bottom: 30px;
+}
+
+#sub-items .centered-button {
+  text-align: center;
 }
 
 #sub-items .icon {
@@ -62,7 +61,11 @@
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
-  margin-left: 100px;
+  margin-left: 20px;
+}
+
+#sub-items h5 {
+  display: inline;
 }
 
 #sub-items .title a {
