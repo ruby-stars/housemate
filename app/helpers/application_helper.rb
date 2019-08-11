@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def is_index?
-    params['action']=='index'
+    params['controller'] == 'home' && params['action'] == 'index'
   end
 
 end

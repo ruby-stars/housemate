@@ -10,13 +10,13 @@
   padding: 10px;
 }
 
-#house-groups {
+#sub-items {
   background: linear-gradient(rgba(0, 153, 153, 0.6), rgba(0, 0, 0, 0.1));
   background-size: cover;
   padding: 60px;
 }
 
-#house-groups .centered-button {
+#sub-items .centered-button {
   text-align: center;
 }
 
@@ -39,48 +39,48 @@
   color: rgb(0, 153, 153);
 }
 
-/* house-groups Section
+/* sub-items Section
 --------------------------------*/
 
-#house-groups .box {
+#sub-items .box {
   margin-bottom: 30px;
 }
 
-#house-groups .icon {
+#sub-items .icon {
   float: left;
   margin-left: 30px;
 }
 
-#house-groups .icon i {
+#sub-items .icon i {
   color: #fff;
   font-size: 36px;
   line-height: 1;
   transition: 0.5s;
 }
 
-#house-groups .title {
+#sub-items .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
   margin-left: 100px;
 }
 
-#house-groups .title a {
+#sub-items .title a {
   color: #111;
 }
 
-#house-groups .box:hover .title a {
+#sub-items .box:hover .title a {
   color: #fff;
 }
 
-#house-groups .description {
+#sub-items .description {
   font-size: 14px;
   margin-left: 100px;
   line-height: 24px;
   margin-bottom: 0;
 }
 
-#house-groups .cta-btn {
+#sub-items .cta-btn {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -95,12 +95,12 @@
   color: #fff;
 }
 
-#house-groups .cta-btn:hover {
+#sub-items .cta-btn:hover {
   background: #18d26e;
   border: 2px solid #18d26e;
 }
 
-#house-groups .btn-action {
+#sub-items .btn-action {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -115,7 +115,7 @@
   border: 1px solid #fff;
 }
 
-#house-groups .btn-action:hover {
+#sub-items .btn-action:hover {
   color: #18d26e;
   background: #fff;
   border: 1px solid #18d26e;

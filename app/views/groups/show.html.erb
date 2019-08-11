@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <section id="house-groups">
+  <section id="sub-items">
     <div class="row padded">
       <div class="col-md-6 offset-md-3 text-center">
         <h4>Tasks:</h4>
@@ -47,6 +47,7 @@
     </div>
 
     <div class="row">
+      <% if @group.tasks.any? %>
       <% @group.tasks.each do |task| %>
       <div class="col-md-4 box wow bounceInUp" data-wow-duration="1.4s">
         <div class="icon"><i class="fas fa-tasks"></i></div>
@@ -55,16 +56,21 @@
           <% if task.completed %>
             <i class="far fa-check-circle"></i> Done!
           <% else %>
-            Due by <%= task.duedate %>
+            Due by <%= task.duedate.strftime("%d %b %Y") %>
           <% end %>
         </p>
       </div>
+      <% end %>
+      <% else %>
+        <h6>Nothing to do in this group yet!</h6>
       <% end %>
     </div>
     <div class="centered-button">
       <%= link_to 'Show all', house_group_tasks_path(@house, @group), class: "cta-btn" %>
     </div>
-  </section><!-- end #house-groups-->
+  </section><!-- end #sub-items-->
+
+</section><!-- end #group-->
 
 <div class="centered-button">
   <%= link_to 'Back to All Groups', house_groups_path, class: "btn-get-started" %>
