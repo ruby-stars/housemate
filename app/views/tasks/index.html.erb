@@ -12,7 +12,7 @@
             <div class="card-body row">
               <div class="col-md-9">
                 <h5 class="card-title"><%= link_to task.name, house_group_task_path(@house, @group, task) %></h5>
-                <h6 class="card-subtitle mt-1 house-manager"><i class="far fa-user"></i><%= task.user.nickname %></h6>
+                <h6 class="card-subtitle mt-1 user house-manager"><i class="far fa-user"></i><%= task.user.nickname %></h6>
               </div>
               <div class="col-md-3 text-right">
                 <%= link_to 'Edit', edit_house_group_task_path(@house, @group, task), class: "btn-action" %>

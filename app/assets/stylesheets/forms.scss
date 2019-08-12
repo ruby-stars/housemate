@@ -1,0 +1,27 @@
+/* Input Forms
+--------------------------------*/
+
+#input-form {
+  padding: 60px 0; 
+}
+
+#input-form .form input,
+#input-form .form textarea {
+  padding: 10px 14px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 15px;
+}
+
+#input-form .form button[type="submit"] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#input-form .form button[type="submit"]:hover {
+  background: #13a456;
+}
