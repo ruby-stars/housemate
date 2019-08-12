@@ -1,5 +1,9 @@
-<h1>New Group</h1>
+<header class="section-header">
+  <h3 class="section-title">New Group in <%=@house.name %></h3>
+</header>
 
 <%= render 'form', group: @group %>
 
-<%= link_to 'Back', house_groups_path %>
+<div class="centered-button">
+  <%= link_to 'Show All Groups', house_groups_path, class: "btn-get-started" %>
+</div>

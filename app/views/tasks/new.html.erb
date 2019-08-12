@@ -1,5 +1,9 @@
-<h1>New Task for Group: <%=@group.name %></h1>
+<header class="section-header">
+  <h3 class="section-title">New Task for <%=@group.name %></h3>
+</header>
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show all tasks', house_group_tasks_path %>
+<div class="centered-button">
+  <%= link_to 'Show All Tasks', house_group_tasks_path, class: "btn-get-started" %>
+</div>
