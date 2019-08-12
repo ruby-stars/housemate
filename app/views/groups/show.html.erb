@@ -28,9 +28,10 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Initiator:</h5>
-          <p class="card-text">
-            <i class="far fa-user"></i><%= @group.user.nickname %>
-          </p>
+          <div class="user">
+            <i class="far fa-user"></i>
+            <h5 class="card-title"><%= @group.user.nickname %></h5>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +43,7 @@
         <h4>Tasks:</h4>
       </div>
       <div class="col-md-3 text-right">
-        <%= link_to 'New Task', new_house_group_task_path(@house, @group, @task), class: "btn-action" %>
+        <%= link_to 'New Task', new_house_group_task_path(@house, @group, @task), class: "btn-action-inv" %>
       </div>
     </div>
 
@@ -52,7 +53,7 @@
       <div class="col-md-4 box wow bounceInUp" data-wow-duration="1.4s">
         <div class="icon"><i class="fas fa-tasks"></i></div>
         <h5 class="title"><%= link_to task.name, house_group_task_path(@house, @group, task) %></h5>
-        <p class="description">
+        <p class="description completed">
           <% if task.completed %>
             <i class="far fa-check-circle"></i> Done!
           <% else %>
