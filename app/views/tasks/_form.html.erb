@@ -1,39 +1,40 @@
-<%= form_with(model: @task, url: [@house, @group, @task], local: true) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<section id="contact">
+  <div class="form">
+    <%= form_with(model: @task, url: [@house, @group, @task], local: true, html: {class: "contactForm"}) do |form| %>
+      <% if task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+          <ul>
+          <% task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :task_name %>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :task_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :task_description, class: "form-control", rows: "3" %>
+      </div>
+      <div class="form-row"> 
+        <div class="form-group col-md-4">
+          <%= form.label :duedate %>
+          <%= form.text_field :duedate, autocomplete: 'off', value: Date.today.strftime('%d/%m/%Y'), data:{ provide: 'datepicker', 'date-format' => "dd/mm/yyyy", 'date-autoclose' => true, 'date-days-of-week-highlighted' => [0,6], 'date-orientation' => "bottom left", 'date-today-highlight' => true, 'date-week-start' => 1, 'date-today-btn' => true }, class: "form-control" %>
+        </div>
+      </div>
+      <% if params[:action] == "edit" %>
+        <div class="form-group form-check">
+          <%= form.check_box :completed, id: :task_completed, class: "form-check-input" %>
+          <%= form.label :completed, class: "form-check-label" %>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= form.submit class: "btn-get-started" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :task_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duedate %>
-    <%= form.text_field :duedate, autocomplete: 'off', value: Date.today.strftime('%d/%m/%Y'), data:{ provide: 'datepicker', 'date-format' => "dd/mm/yyyy", 'date-autoclose' => true, 'date-days-of-week-highlighted' => [0,6], 'date-orientation' => "bottom left", 'date-today-highlight' => true, 'date-week-start' => 1, 'date-today-btn' => true } %>
-  </div>
-
-  <% if params[:action] == "edit" %>
-    <div class="field">
-      <%= form.label :completed %>
-      <%= form.check_box :completed, id: :task_completed %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>
