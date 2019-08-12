@@ -1,5 +1,9 @@
-<h1>New House</h1>
+<header class="section-header">
+  <h3 class="section-title">New House</h3>
+</header>
 
 <%= render 'form', house: @house %>
 
-<%= link_to 'Back', houses_path %>
+<div class="centered-button">
+  <%= link_to 'Back to All Houses', houses_path, class: "btn-get-started" %>
+</div>
