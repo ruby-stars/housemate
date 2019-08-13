@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :group
   load_and_authorize_resource :task, through: :group
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
   before_action :set_group
   before_action :set_house
 
@@ -33,8 +35,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to house_group_task_url(@house, @group, @task),
-        notice: 'Task was successfully created.' }
+        format.html do
+          redirect_to house_group_task_url(@house, @group, @task),
+                      notice: 'Task was successfully created.'
+        end
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
