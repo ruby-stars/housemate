@@ -1,0 +1,123 @@
+.centered-button {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.btn-get-started {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  background: #18d26e;
+}
+
+.btn-get-started:hover {
+  background: #fff;
+  color: #18d26e;
+}
+
+.btn-action {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #18d26e;
+  background: #fff;
+  border: 1px solid #18d26e;
+}
+
+.btn-action:hover {
+  background: #18d26e;
+  color: #fff;
+}
+
+.btn-action-inv {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.btn-action-inv:hover {
+  color: #18d26e;
+  background: #fff;
+  border: 1px solid #18d26e;
+}
+
+.cta-btn {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 25px;
+  transition: 0.5s;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.cta-btn:hover {
+  background: #18d26e;
+  border: 2px solid #18d26e;
+  color: #fff;
+}
+
+/* Back to top button */
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  background: #18d26e;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  line-height: 1;
+  font-size: 16px;
+  border-radius: 50%;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  z-index: 11;
+}
+
+.back-to-top i {
+  padding-top: 12px;
+  color: #fff;
+}
+
+.complete-task button {
+  background-color: transparent;
+  border: transparent;
+  color: #6c757d;
+}
+
+.complete-task button:hover {
+  color: #18d26e;
+}
+
+.complete-task button:focus {
+  outline: none;
+}

@@ -1,0 +1,46 @@
+/* sub-items Section
+--------------------------------*/
+#sub-items {
+  background: linear-gradient(rgba(0, 153, 153, 0.6), rgba(0, 0, 0, 0.1));
+  background-size: cover;
+  padding: 60px;
+}
+
+#sub-items .box {
+  margin-bottom: 30px;
+}
+
+#sub-items .icon {
+  float: left;
+  margin-left: 30px;
+}
+
+#sub-items .icon i {
+  color: #fff;
+  font-size: 36px;
+  line-height: 1;
+  transition: 0.5s;
+}
+
+#sub-items .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+  margin-left: 20px;
+  display: inline;
+}
+
+#sub-items .title a {
+  color: #099;
+}
+
+#sub-items .box:hover .title a {
+  color: #fff;
+}
+
+#sub-items .description {
+  font-size: 14px;
+  margin-left: 100px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
