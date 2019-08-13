@@ -65,7 +65,7 @@
   </div>
 <% end %>
 
-  <% if can? :manage, Group %> 
+<% if can? :manage, Group %> 
   <section id="sub-items">  
     <div class="row padded">
       <div class="col-md-6 offset-md-3 text-center">
@@ -89,7 +89,7 @@
       <%= link_to 'Show all', house_groups_path(@house), class: "cta-btn" %>
     </div>
   </section><!-- end #sub-items-->
-  <% end %>
+<% end %>
 
 </section><!-- end #house -->
 
