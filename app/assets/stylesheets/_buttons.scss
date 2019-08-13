@@ -14,12 +14,12 @@
   transition: 0.5s;
   margin: 10px;
   color: #fff;
-  background: #18d26e;
+  background: $yellow;
 }
 
 .btn-get-started:hover {
   background: #fff;
-  color: #18d26e;
+  color: $yellow;
 }
 
 .btn-action {
@@ -32,13 +32,13 @@
   border-radius: 10px;
   transition: 0.5s;
   margin: 10px;
-  color: #18d26e;
+  color: $yellow;
   background: #fff;
-  border: 1px solid #18d26e;
+  border: 1px solid $yellow;
 }
 
 .btn-action:hover {
-  background: #18d26e;
+  background: $yellow;
   color: #fff;
 }
 
@@ -58,9 +58,9 @@
 }
 
 .btn-action-inv:hover {
-  color: #18d26e;
+  color: $yellow;
   background: #fff;
-  border: 1px solid #18d26e;
+  border: 1px solid $yellow;
 }
 
 .cta-btn {
@@ -79,8 +79,8 @@
 }
 
 .cta-btn:hover {
-  background: #18d26e;
-  border: 2px solid #18d26e;
+  background: $yellow;
+  border: 2px solid $yellow;
   color: #fff;
 }
 
@@ -89,7 +89,7 @@
 .back-to-top {
   position: fixed;
   display: none;
-  background: #18d26e;
+  background: $yellow;
   color: #fff;
   width: 44px;
   height: 44px;
@@ -115,7 +115,7 @@
 }
 
 .complete-task button:hover {
-  color: #18d26e;
+  color: $yellow;
 }
 
 .complete-task button:focus {

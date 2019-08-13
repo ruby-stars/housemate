@@ -65,7 +65,7 @@
 
 .nav-menu li:hover > a,
 .nav-menu > .menu-active > a {
-  color: #18d26e;
+  color: $yellow;
 }
 
 .nav-menu > li {
@@ -93,7 +93,7 @@
 }
 
 .nav-menu ul li:hover > a {
-  color: #18d26e;
+  color: $yellow;
 }
 
 .nav-menu ul ul {
@@ -182,7 +182,7 @@
 }
 
 #mobile-nav ul li a:hover {
-  color: #18d26e;
+  color: $yellow;
 }
 
 #mobile-nav ul li li {
@@ -190,7 +190,7 @@
 }
 
 #mobile-nav ul li.menu-active a {
-  color: #18d26e;
+  color: $yellow;
 }
 
 #mobile-nav ul .menu-has-children i {
@@ -203,7 +203,7 @@
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #18d26e;
+  color: $yellow;
 }
 
 #mobile-nav ul .menu-has-children li a {
@@ -211,7 +211,7 @@
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #18d26e;
+  color: $yellow;
 }
 
 #mobile-body-overly {

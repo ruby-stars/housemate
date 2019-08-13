@@ -26,7 +26,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
-  border-left: 4px solid #18d26e;
+  border-left: 4px solid $yellow;
 }
 
 #footer .footer-top .footer-info p {
@@ -53,7 +53,7 @@
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #18d26e;
+  background: $yellow;
   color: #fff;
 }
 
@@ -81,7 +81,7 @@
 }
 
 #footer .footer-top h4::after {
-  background: #18d26e;
+  background: $yellow;
   width: 60px;
 }
 
@@ -114,7 +114,7 @@
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #18d26e;
+  color: $yellow;
 }
 
 #footer .footer-top .footer-contact {
@@ -136,7 +136,7 @@
 }
 
 #footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #18d26e;
+  background: $yellow;
   border: 0;
   width: 35%;
   padding: 6px 0;

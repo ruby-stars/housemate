@@ -14,7 +14,7 @@
 }
 
 #input-form .form button[type="submit"] {
-  background: #18d26e;
+  background: $yellow;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -24,4 +24,10 @@
 
 #input-form .form button[type="submit"]:hover {
   background: #13a456;
+}
+
+#input-form input[type=number]::-webkit-inner-spin-button, 
+#input-form input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
