@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class HousesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_house, only: [:show, :edit, :update, :destroy]
+  before_action :set_house, only: %i[show edit update destroy]
 
   # GET /houses
   # GET /houses.json
@@ -26,14 +28,14 @@ class HousesController < ApplicationController
 
   # GET /houses/1/edit
   def edit
-    authorize! :edit, @house, :message => "You are not authorized to edit this house. Sorry!"
+    authorize! :edit, @house, message: 'You are not authorized to edit this house. Sorry!'
   end
 
   # POST /houses
   # POST /houses.json
   def create
     @house = House.new(house_params)
-    @mate = Mate.new(user: current_user, house: @house, house_manager: true )
+    @mate = Mate.new(user: current_user, house: @house, house_manager: true)
 
     respond_to do |format|
       if @house.save && @mate.save

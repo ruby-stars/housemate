@@ -1,24 +1,24 @@
+# frozen_string_literal: true
+
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :house
   load_and_authorize_resource :group, through: :house
-  
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_group, only: %i[show edit update destroy]
   before_action :set_house
 
   def index
     @groups = Group.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @group = Group.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @group = Group.new(group_params)

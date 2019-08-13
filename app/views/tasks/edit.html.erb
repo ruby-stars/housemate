@@ -1,6 +1,10 @@
-<h1>Editing Task</h1>
+<header class="section-header">
+  <h3 class="section-title">Edit Task</h3>
+</header>
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show', [@house, @group, @task] %> |
-<%= link_to 'Back', house_group_tasks_path %>
+<div class="centered-button">
+  <%= link_to 'Show Task', [@house, @group, @task], class: "btn-get-started" %>
+  <%= link_to 'Back to All Tasks', house_group_tasks_path, class: "btn-get-started" %>
+</div>

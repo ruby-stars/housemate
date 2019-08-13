@@ -1,0 +1,40 @@
+// Place all the styles related to the houses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user i {
+  font-size: 1.4em;
+  display: inline;
+  padding-right: 5px;
+}
+
+.user h5 {
+  display: inline;
+}
+
+#house-card i {
+  padding: 0 10px;
+  font-size: 1.5em;
+}
+
+.completed i {
+  padding-right: 10px;
+  font-size: 1.8em;
+  color: #2eb82e;
+}
+
+#task .card-header i {
+  color: rgb(0, 153, 153);
+  font-size: 1.5em;
+  display: inline;
+  padding-right: 10px;
+}
+
+#task .card-header h5 {
+  display: inline;
+  vertical-align: top;
+}
+
+#task .card-footer i {
+  font-size: 1.8em;
+}

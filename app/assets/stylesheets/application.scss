@@ -10,51 +10,28 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+
  *= require_self
  *= require bootstrap-datepicker
  */
 
-@import "bootstrap";
+@import 'bootstrap';
 
-body {
-  background-color: #F5F5F5;
-}
+@import '_general';
+@import '_buttons';
+@import '_icons';
 
+@import 'page-header';
+@import 'navigation';
+@import 'sections-header';
 
-p {
-  font-family: 'Lato', sans-serif;
-  color: #282623;
-}
+@import 'portfolio';
+@import 'calltoaction';
+@import 'facts';
 
-.navbar {
-  padding: 1rem;
-  background-color: #009999;
-  font-family: 'Comfortaa', cursive;
-}
+@import 'lists';
+@import 'subitems-panel';
 
-/*.navbar li {
-  color: #334ACC;
-  display: inline;
-}*/
+@import 'forms';
 
-.navbar h1 a {
-  color: #404040;
-  text-decoration: none;
-}
-
-a {
-  color: #606060;
-
-  &:hover {
-    color: white;
-  }
-}
-
-.prompt {
-  color: #334ACC;
-}
-
-.dropdown-menu {
-  background-color: #66c1c1;
-}
+$yellow: #ffd633;

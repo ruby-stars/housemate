@@ -1,93 +1,100 @@
 <p id="notice"><%= notice %></p>
+<section id="house">
 
-<h3><%= @house.name %></h3>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <header class="section-header">
+        <h3 class="section-title"><%= @house.name %></h3>
+      </header>
+    </div>
+    <div class="col-md-3 text-right">
+      <% if can? :update, @house %>
+          <%= link_to 'Edit', edit_house_path(@house), class: "btn-action" %>
+      <% end %>
+      <% if can? :destroy, @house %>
+          <%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-action" %>
+      <% end %>
+    </div>
+  </div>
 
-<p>
-  <strong>This is our house:</strong>
-  <br>
-  <%= image_tag @house.HouseImage.url%>
-</p>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+      <%= @house.about %>
+    </div>
+  </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @house.street %>
-  <%= @house.number %>
-</p>
+  <div class="text-center">
+    <%= image_tag @house.HouseImage.url, class: "img-fluid" %>
+  </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @house.postalcode %>
-  <%= @house.city %>
-</p>
+  <div class="row text-center padded">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Information:</h5>
+          <p class="card-text">
+            <%= @house.street %>
+            <%= @house.number %><br>
+            <%= @house.postalcode %>
+            <%= @house.city %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>About:</strong>
-  <%= @house.about %>
-</p>
+  <div class="row padded">
+    <div class="col-md-6 offset-md-3 text-center">
+      <h4>We live in this house:</h4>
+    </div>
 
-<p>
-  <strong>House Mates:</strong>
-</p>
-<p>
-  <% @house.house_mates.each do |mate| %>
-    <ul>
-      <li class=<%= mate == @house.house_manager ? "font-weight-bold" : "font-weight-normal" %> >
-        <%= mate.nickname %>
-      </li>
-    </ul>
-  <% end %>
-</p>
+    <div class="col-md-10 offset-md-1 text-center">
+      <ul class="housemate-list">
+        <% @house.house_mates.each do |mate| %>
+          <li class="<%= 'house-manager' if mate == @house.house_manager %>" >
+            <i class="far fa-user"></i><%= mate.nickname %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
 <% if !(@house.house_mates.include?(current_user)) %>
-  <button type="button" class="btn btn-outline-secondary">
-    <%= link_to 'Join', join_house_path, method: :patch %>
-  </button>
+  <div class="centered-button">
+    <%= link_to 'Join', join_house_path, method: :patch, class: "btn-get-started" %>
+  </div>
 <% end %>
 
-<br>
-
-<% if can? :update, @house %>
-  <button type="button" class="btn btn-outline-secondary">
-    <%= link_to 'Edit', edit_house_path(@house) %>
-  </button>
-<% end %>
-<% if can? :destroy, @house %>
-  <button type="button" class="btn btn-outline-secondary">
-    <%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </button>
-<% end %>
-
-<br>
-
-<% if (can? :update, @house) && (can? :manage, Group) %> 
-<!-- not the final solution as this will not work for house_mates (once defined) -->
-<br>
-<div>
-
-  <h4>This house's groups:</h4>
-  <%= link_to 'Show all', house_groups_path(@house) %>
-
-  <% @house.groups.each do |group| %>
-    <div>
-      <strong>
-      <%= link_to group.name, house_group_path(@house, group)  %>
-      </strong>
+  <% if (can? :update, @house) && (can? :manage, Group) %> 
+  <section id="sub-items">
+  <!-- not the final solution as this will not work for house_mates (once defined) -->
+    <div class="row padded">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h4>Groups:</h4>
+      </div>
+      <div class="col-md-3 text-right">
+        <%= link_to 'New Group', new_house_group_path(@house, @group), class: "btn-action-inv" %>
+      </div>
     </div>
+
+    <div class="row">
+      <% @house.groups.each do |group| %>
+      <div class="col-md-4 box wow bounceInUp" data-wow-duration="1.4s">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <h5 class="title"><%= link_to group.name, house_group_path(@house, group) %></h5>
+        <p class="description"><%= group.about %></p>
+      </div>
+      <% end %>
+    </div>
+    <div class="centered-button">
+      <%= link_to 'Show all', house_groups_path(@house), class: "cta-btn" %>
+    </div>
+  </section><!-- end #sub-items-->
   <% end %>
+
+</section><!-- end #house -->
+
+<div class="centered-button">
+  <%= link_to 'Back to All Houses', houses_path, class: "btn-get-started" %>
+  <%= link_to 'Back Home', root_path, class: "btn-get-started" %>
 </div>
-
-<br>
-<button type="button" class="btn btn-outline-secondary btn-sm">
-  <%= link_to 'Create New Group', new_house_group_path(@house, @group) %>
-</button>
-
-<br>
-<% end %>
-
-<br>
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Back to All Houses', houses_path %>
-</button>
-<button type="button" class="btn btn-outline-secondary">
-  <%= link_to 'Back Home', root_path %>
-</button>

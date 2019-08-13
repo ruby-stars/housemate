@@ -1,0 +1,68 @@
+
+/*--------------------------------------------------------------
+# Responsive Media Queries
+--------------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  #input-form .contact-address,
+  #input-form .contact-phone,
+  #input-form .contact-email {
+    padding: 20px 0;
+  }
+
+  #input-form .contact-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+}
+
+@media (min-width: 992px) {
+  #testimonials .testimonial-item p {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  #header #logo {
+    padding-left: 60px;
+  }
+
+  #intro p {
+    width: 60%;
+  }
+
+  #intro .carousel-control-prev,
+  #intro .carousel-control-next {
+    width: 5%;
+  }
+
+  #nav-menu-container {
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 15px;
+  }
+
+  #header #logo h1 {
+    font-size: 28px;
+  }
+
+  #header #logo img {
+    max-height: 40px;
+  }
+
+  #intro h2 {
+    font-size: 28px;
+  }
+
+  #nav-menu-container {
+    display: none;
+  }
+
+  #mobile-nav-toggle {
+    display: inline;
+  }
+}

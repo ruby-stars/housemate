@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -14,9 +16,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url(*args)
-    #{}"/images/default/default-avatar.png"
-    ActionController::Base.helpers.asset_path("default/" + [version_name, "default-avatar.png"].compact.join('_'))
+  def default_url(*_args)
+    # {}"/images/default/default-avatar.png"
+    ActionController::Base.helpers.asset_path('default/' + [version_name, 'default-avatar.png'].compact.join('_'))
   end
 
   # Process files as they are uploaded:
@@ -39,7 +41,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

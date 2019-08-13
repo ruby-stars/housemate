@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class House < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :mates, dependent: :delete_all
@@ -6,7 +8,7 @@ class House < ApplicationRecord
   mount_uploader :HouseImage, HouseImageUploader
 
   def house_manager
-  	mates.find {|mate| mate.house_manager?}.user
+    mates.find(&:house_manager?).user
   end
 
   def house_mates
@@ -16,5 +18,4 @@ class House < ApplicationRecord
     end
     array
   end
-
 end
