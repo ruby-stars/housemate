@@ -27,4 +27,5 @@ class User < ApplicationRecord
     end
     array
   end
+
 end
