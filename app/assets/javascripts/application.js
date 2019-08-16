@@ -21,6 +21,20 @@
 
 $(document).on('turbolinks:load', function () {
 
+
+  // Header scroll class
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('header-scrolled');
+    } else {
+      $('#header').removeClass('header-scrolled');
+    }
+  });
+
+  if ($(window).scrollTop() > 100) {
+    $('#header').addClass('header-scrolled');
+  };
+
   // Back to top button
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
@@ -32,7 +46,9 @@ $(document).on('turbolinks:load', function () {
   $('.back-to-top').click(function() {
     $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
     return false;
-  })
+  });
+
+
 });
 
   // $(function() {
@@ -54,18 +70,6 @@ $(document).on('turbolinks:load', function () {
   
  
 
-  // // Header scroll class
-  // $(window).scroll(function() {
-  //   if ($(this).scrollTop() > 100) {
-  //     $('#header').addClass('header-scrolled');
-  //   } else {
-  //     $('#header').removeClass('header-scrolled');
-  //   }
-  // });
-
-  // if ($(window).scrollTop() > 100) {
-  //   $('#header').addClass('header-scrolled');
-  // }
 
   // // Smooth scroll for the menu and links with .scrollto classes
   // $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
