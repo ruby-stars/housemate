@@ -97,21 +97,5 @@ $(document).on('turbolinks:load', function () {
   } else if ($("#mobile-nav, #mobile-nav-toggle").length) {
     $("#mobile-nav, #mobile-nav-toggle").hide();
   };
-
-
 });
 
-  // $(function() {
-  //   $('#datetimepicker4').datetimepicker({
-  //     pickTime: false
-  //   });
-  // });
-
-  // // Preloader
-  // $(window).on('load', function () {
-  //   if ($('#preloader').length) {
-  //     $('#preloader').delay(100).fadeOut('slow', function () {
-  //       $(this).remove();
-  //     });
-  //   }
-  // });
