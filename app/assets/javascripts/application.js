@@ -50,6 +50,14 @@ $(document).on('turbolinks:load', function () {
     return false;
   });
 
+  // Initiate superfish on nav menu
+  $('.nav-menu').superfish({
+    animation: {
+      opacity: 'show'
+    },
+    speed: 400
+  });
+
 
 });
 
