@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>HouseMate</title>
+  <!-- external CSS stylesheets -->
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700','application' %>
     <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.6.0/css/all.css' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -10,6 +11,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
   </head>
 
@@ -82,7 +86,7 @@
     <!--=========================
     Back to Top button
     ==========================-->
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top" id="btt"><i class="fa fa-chevron-up"></i></a>
 
   </body>
 </html>
