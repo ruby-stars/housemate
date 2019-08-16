@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <header class="section-header">
+  <header class="section-header wow fadeInUp">
     <h3 class="section-title">To-Dos in <%= @group.name %></h3>
   </header>
 
   <div id="task" class="container-fluid">
     <% @group.tasks.each do |task| %>
-      <div class="card mb-2">
+      <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @group.tasks.index(task) %>s">
         <div class="row"><!--full row-->
          <div class="col">
             <div class="card-body row">
