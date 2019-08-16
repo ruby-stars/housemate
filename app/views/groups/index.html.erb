@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <header class="section-header">
+  <header class="section-header wow fadeInUp">
     <h3 class="section-title">Groups of <%= @house.name %></h3>
   </header>
 
   <div id="group-card" class="container-fluid">
     <% @house.groups.each do |group| %>
-      <div class="card mb-2">
+      <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @house.groups.index(group) %>s">
         <div class="row"><!--full row-->
          <div class="col">
             <div class="card-body">

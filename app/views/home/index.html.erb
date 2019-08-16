@@ -4,13 +4,13 @@
 <section id="portfolio"  class="section-bg" >
   <div class="container">
 
-    <header class="section-header">
+    <header class="section-header wow fadeInUp">
       <h3 class="section-title">Welcome to Housemate</h3>
     </header>
 
     <div class="row">
       <% @last_houses.each do |house| %>
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.<%= @last_houses.index(house) %>s">
           <div class="portfolio-wrap">
             <figure>
               <%= link_to (image_tag house.HouseImage.thumb.url), house, class: "img-fluid"%>
@@ -42,7 +42,7 @@
   Call To Action Section
 ============================-->
 <% if !user_signed_in? %>
-<section id="call-to-action" class="wow fadeIn">
+<section id="call-to-action" class="wow fadeIn" data-wow-delay="0.3s">
   <div class="container text-center">
     <h3>Join our community</h3>
     <p>Thousands of students, young professionals, singles, couples and families live in shared accommodation around the world. Discover how <strong>HouseMate</strong> can make shared living easier for you and join our community by registering your home.</p>
@@ -54,10 +54,10 @@
 <!--==========================
   Facts Section
 ============================-->
-<section id="facts"  class="wow fadeIn">
+<section id="facts" class="wow fadeIn" data-wow-delay="0.5s">
   <div class="container">
 
-    <header class="section-header">
+    <header class="section-header wow fadeInUp">
       <h3>Facts</h3>
       <p>Our community keeps growing with many already registered. Come join us as well!</p>
     </header>

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <header class="section-header">
+  <header class="section-header wow fadeInUp">
     <h3 class="section-title">All Homes on HouseMate</h3>
   </header>
 
   <div id="house-card" class="container-fluid">
     <% @houses.each do |house| %>
-      <div class="card mb-2">
+      <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @houses.index(house) %>s">
         <div class="row"><!--full row-->
           <div class="col-md-3">
             <%= link_to (image_tag house.HouseImage.small_thumb.url, class: "card-img"), house %>
