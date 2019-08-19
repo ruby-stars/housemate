@@ -2,12 +2,12 @@
 <section id="house">
 
   <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
+    <div class="col-lg-6 offset-lg-3 text-center">
       <header class="section-header wow fadeInUp">
         <h3 class="section-title"><%= @house.name %></h3>
       </header>
     </div>
-    <div class="col-md-3 text-right">
+    <div class="col-lg-3 text-lg-right text-center">
       <% if can? :update, @house %>
           <%= link_to 'Edit', edit_house_path(@house), class: "btn-action" %>
       <% end %>
@@ -17,47 +17,49 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-8 offset-md-2 text-center">
-      <%= @house.about %>
+  <section id="description">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <%= @house.about %>
+      </div>
     </div>
-  </div>
 
-  <div class="text-center">
-    <%= image_tag @house.HouseImage.url, class: "img-fluid" %>
-  </div>
+    <div class="text-center">
+      <%= image_tag @house.HouseImage.url, class: "img-fluid" %>
+    </div>
 
-  <div class="row text-center padded">
-    <div class="col-md-4 offset-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Information:</h5>
-          <p class="card-text">
-            <%= @house.street %>
-            <%= @house.number %><br>
-            <%= @house.postalcode %>
-            <%= @house.city %>
-          </p>
+    <div class="row text-center padded">
+      <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Information:</h5>
+            <p class="card-text">
+              <%= @house.street %>
+              <%= @house.number %><br>
+              <%= @house.postalcode %>
+              <%= @house.city %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row padded">
-    <div class="col-md-6 offset-md-3 text-center">
-      <h4>We live in this house:</h4>
-    </div>
+    <div class="row padded">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h4>We live in this house:</h4>
+      </div>
 
-    <div class="col-md-10 offset-md-1 text-center">
-      <ul class="housemate-list">
-        <% @house.house_mates.each do |mate| %>
-          <li class="<%= 'house-manager' if mate == @house.house_manager %>" >
-            <i class="far fa-user"></i><%= mate.nickname %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="col-md-10 offset-md-1 text-center">
+        <ul class="housemate-list">
+          <% @house.house_mates.each do |mate| %>
+            <li class="<%= 'house-manager' if mate == @house.house_manager %>" >
+              <i class="far fa-user"></i><%= mate.nickname %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 
 <% if !(@house.house_mates.include?(current_user)) %>
   <div class="centered-button">
@@ -68,20 +70,20 @@
 <% if can? :manage, Group %> 
   <section id="sub-items">  
     <div class="row padded">
-      <div class="col-md-6 offset-md-3 text-center">
+      <div class="col-lg-6 offset-lg-3 text-center">
         <h4>Groups:</h4>
       </div>
-      <div class="col-md-3 text-right">
+      <div class="col-lg-3 text-lg-right text-center">
         <%= link_to 'New Group', new_house_group_path(@house, @group), class: "btn-action-inv" %>
       </div>
     </div>
 
     <div class="row">
       <% @house.groups.each do |group| %>
-      <div class="col-md-4 box wow bounceInUp" data-wow-duration="1.4s">
+      <div class="col-lg-4 box wow bounceInUp" data-wow-duration="1.4s">
         <div class="icon"><i class="fas fa-users"></i></div>
         <h5 class="title"><%= link_to group.name, house_group_path(@house, group) %></h5>
-        <p class="description"><%= group.about %></p>
+        <p class="description"><%= truncate(group.about, length: 180, separator: ' ') { link_to " more", house_group_path(@house, group) } %></p>
       </div>
       <% end %>
     </div>

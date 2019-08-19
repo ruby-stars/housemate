@@ -22,14 +22,14 @@
                     <h6 class="card-subtitle mb-4"><i class="fas fa-tasks"></i><%= group.tasks.count {|task| !task.completed? } %> pending tasks</h6>
                   <% end %>
                 </div>
-                <div class="col-md-3 text-right">
+                <div class="col-md-3 text-md-right text-center">
                   <%= link_to 'Edit', edit_house_group_path(@house, group), class: "btn-action" if can? :manage, group %>
                 </div>
               </div><!-- end row 1 -->
               <div class="row"><!-- row 2 -->
                 <div class="col">
                   <p class="card-text">
-                    <%= group.about %>
+                    <%= truncate(group.about, length: 180, separator: ' ') { link_to " more", house_group_path(@house, group) } %>
                   </p>
                 </div>
               </div><!-- end row 2 -->

@@ -3,12 +3,12 @@
 <section id="group">
 
   <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
+    <div class="col-lg-6 offset-lg-3 text-center">
       <header class="section-header wow fadeInUp">
         <h3 class="section-title"><%= @group.name %></h3>
       </header>
     </div>
-    <div class="col-md-3 text-right">
+    <div class="col-lg-3 text-lg-right text-center">
       <% if can? :manage, @group %>
           <%= link_to 'Edit', edit_house_group_path(@house, @group), class: "btn-action" %>
           <%= link_to 'Delete', house_group_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-action" %>
@@ -16,33 +16,35 @@
     </div>
   </div>
 
-  <div class="row padded">
-    <div class="col-md-8 offset-md-2 text-center">
-      <h4>Our Mission:</h4>
-      <%= @group.about %>
+  <section id="description">
+    <div class="row padded">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <h4>Our Mission:</h4>
+        <%= @group.about %>
+      </div>
     </div>
-  </div>
 
-  <div class="row text-center padded">
-    <div class="col-md-4 offset-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Initiator:</h5>
-          <div class="user">
-            <i class="far fa-user"></i>
-            <h5 class="card-title"><%= @group.user.nickname %></h5>
+    <div class="row text-center padded">
+      <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Initiator:</h5>
+            <div class="user">
+              <i class="far fa-user"></i>
+              <h5 class="card-title"><%= @group.user.nickname %></h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <section id="sub-items">
     <div class="row padded">
-      <div class="col-md-6 offset-md-3 text-center">
+      <div class="col-lg-6 offset-lg-3 text-center">
         <h4>Tasks:</h4>
       </div>
-      <div class="col-md-3 text-right">
+      <div class="col-lg-3 text-lg-right text-center">
         <%= link_to 'New Task', new_house_group_task_path(@house, @group, @task), class: "btn-action-inv" %>
       </div>
     </div>

@@ -33,4 +33,23 @@
   #mobile-nav-toggle {
     display: inline;
   }
+
+  #description {
+    padding: 0 5%;
+  }
+
+  #description .housemate-list li {
+    display: block;
+    padding: 5px 0;
+    text-align: left;
+  }
+
+  #sub-items {
+    padding: 60px 0;
+  }
+
+  #sub-items .title, .description {
+    padding-right: 30px;
+  }
+
 }
