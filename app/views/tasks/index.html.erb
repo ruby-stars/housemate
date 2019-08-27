@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-  <header class="section-header">
+  <header class="section-header wow fadeInUp">
     <h3 class="section-title">To-Dos in <%= @group.name %></h3>
   </header>
 
   <div id="task" class="container-fluid">
     <% @group.tasks.each do |task| %>
-      <div class="card mb-2">
+      <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @group.tasks.index(task) %>s">
         <div class="row"><!--full row-->
          <div class="col">
             <div class="card-body row">
@@ -14,7 +14,7 @@
                 <h5 class="card-title"><%= link_to task.name, house_group_task_path(@house, @group, task) %></h5>
                 <h6 class="card-subtitle mt-1 user house-manager"><i class="far fa-user"></i><%= task.user.nickname %></h6>
               </div>
-              <div class="col-md-3 text-right">
+              <div class="col-md-3 text-md-right text-center">
                 <%= link_to 'Edit', edit_house_group_task_path(@house, @group, task), class: "btn-action" %>
               </div>
             </div><!-- end card-body -->
@@ -23,14 +23,14 @@
                 <div class="col-md-8 offset-md-2 text-center">
                   Completed since <%= task.updated_at.strftime("%d %b %Y %I:%M%p") %>
                 </div>
-                <div class="col-md-2 text-right completed">
+                <div class="col-md-2 text-md-right text-center completed">
                   <i class="far fa-check-circle"></i>
                 </div>
               <% else %>
                 <div class="col-md-8 offset-md-2 text-center">
                   Deadline: <%= task.duedate.strftime("%d %b %Y") %>
                 </div>
-                <div class="col-md-2 text-right complete-task">
+                <div class="col-md-2 text-md-right text-center complete-task">
                   <%= form_with(model: task, url: [@house, @group, task], local: true) do |form| %>
                     <%= form.hidden_field :completed, value: :true %>
                     <%= button_tag(type:'submit', data: { confirm: 'Have you really done this?' }) do %>

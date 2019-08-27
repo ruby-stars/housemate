@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-  <header class="section-header">
+  <header class="section-header wow fadeInUp">
     <h3 class="section-title">All Homes on HouseMate</h3>
   </header>
 
   <div id="house-card" class="container-fluid">
     <% @houses.each do |house| %>
-      <div class="card mb-2">
+      <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @houses.index(house) %>s">
         <div class="row"><!--full row-->
-          <div class="col-md-3">
+          <div class="col-lg-3 col-md-5">
             <%= link_to (image_tag house.HouseImage.small_thumb.url, class: "card-img"), house %>
           </div>
-          <div class="col-md-9">
+          <div class="col-lg-9 col-md-7">
             <div class="card-body">
               <div class="row"><!-- row 1 -->
                 <div class="col-md-9">
                   <h5 class="card-title"><%= link_to house.name, house %></h5>
                   <h6 class="card-subtitle mb-4 house-manager"><i class="far fa-user"></i><%= house.house_manager.nickname%></h6>
                 </div>
-                <div class="col-md-3 text-right">
+                <div class="col-md-3 text-md-right text-center">
                   <%= link_to 'Edit', edit_house_path(house), class: "btn-action" if can? :update, house %>
                 </div>
               </div><!-- end row 1 -->
