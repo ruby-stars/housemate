@@ -5,7 +5,7 @@
   <div class="container">
 
     <header class="section-header wow fadeInUp">
-      <h3 class="section-title">Welcome to Housemate</h3>
+      <h3 class="section-title">Welcome to <%= image_tag "housemate_wortmarke_ohne_logo.png", alt: "housemate", class: "hm-header-image" %></h3>
     </header>
 
     <div class="row">
@@ -13,9 +13,7 @@
         <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.<%= @last_houses.index(house) %>s">
           <div class="portfolio-wrap">
             <figure>
-              <%= link_to (image_tag house.HouseImage.thumb.url), house, class: "img-fluid"%>
-              <!-- <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-              <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a> -->
+              <%= link_to (image_tag house.HouseImage.thumb.url, class: "hm-card-image"), house, class: "img-fluid"%>
             </figure>
 
             <div class="portfolio-info">
