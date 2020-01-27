@@ -1,43 +1,81 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @user.nickname %>'s Housemate Dashboard:</h1>
-
-<h3>Houses:</h3>
-<% if @houses.length == 0 %>
-  <p>You have no house yet :(</p>
-<% else %>
-  <div class="container-fluid">
+<section id="portfolio"  class="section-bg" >
+  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <header class="section-header wow fadeInUp">
+      <h3 class="section-title"><%= @user.nickname %>'s <%= image_tag "housemate_wortmarke_ohne_logo.png", alt: "housemate", class: "hm-header-image" %> Dashboard:</h3>
+    </header>
     <div class="row">
-      <% @houses.each do |house| %>
-        <div class="col-4">
-          <%= link_to (image_tag house.HouseImage.thumb.url), house %>
-          <br></br>
-          <h6><%= link_to house.name, house %></h6>
-          <p>You are
-            <% if @user.house_manager? %> the House Manager </p>
-            <% elsif @user.house_mate? %> a House Mate</p>
-            <% end %>
-        </div>
+      <% if @houses.length == 0 %>
+        <p>You have no house yet :(</p>
+      <% else %>
+        <% @houses.each do |house| %>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.<%= @houses.index(house) %>s">
+            <div class="portfolio-wrap">
+              <figure>
+                <%= link_to (image_tag house.HouseImage.thumb.url, class: "hm-card-image"), house, class: "img-fluid" %>
+              </figure>
+              <div class="portfolio-info">
+                <h4><%= link_to house.name, house %></h4>
+                  <% if house.house_manager == @user %>
+                    <p>You are the House Manager </p>
+                  <% else %> 
+                    <p>You are a House Mate</p>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
-  </div>
-<% end %>
+  <section id="task">
+    <header class="section-header wow fadeInUp">
+      <h3 class="section-title"><%= @user.nickname %>'s <%= image_tag "housemate_wortmarke_ohne_logo.png", alt: "housemate", class: "hm-header-image" %> To-Dos:</h3>
+    </header>
+    <% if @tasks.length == 0 %>
+      <p>You have no tasks yet :(</p>
+    <% else %>
 
-<h3>Tasks:</h3>
-<% if @tasks.length == 0 %>
-  <p>You have no tasks yet :(</p>
-<% else %>
-  <div class="container-fluid">
-    <div class="row">
       <% @tasks.each do |task| %>
-        <div class="col-3">
-          <h5><%= link_to task.name, house_group_task_path(task.group.house, task.group, task) %></h5>
-          <p>In Group: <%= link_to task.group.name, house_group_path(task.group.house, task.group) %><br> In House: <%= link_to task.group.house.name, house_path(task.group.house) %></p>
-          <p>Due on <%= task.duedate.strftime("%a, %d %b %Y") %></p>
-          <p>Days left: <%= time_ago_in_words(task.duedate) %></p>
-          <p>Completed: <%= task.completed ? 'Yes' : 'No' %></p>
-        </div>
+        <div class="card mb-2 wow fadeInUp" data-wow-delay="0.<%= @tasks.index(task) %>s">
+          <div class="row"><!--full row-->
+           <div class="col">
+              <div class="card-body row">
+                <div class="col-md-9">
+                  <h5 class="card-title"><%= link_to task.name, house_group_task_path(task.group.house, task.group, task) %></h5>
+                  <h6 class="card-subtitle mt-1 user house-manager">
+                    <i class="fas fa-users"></i>
+                    <%= link_to task.group.name, house_group_path(task.group.house, task.group) %> in 
+                    <%= link_to task.group.house.name, house_path(task.group.house) %>
+                  </h6>
+                </div>
+              </div><!-- end card-body -->
+              <div class="card-footer text-muted row no-row-margin">
+                <% if task.completed %>
+                  <div class="col-md-8 offset-md-2 text-center">
+                    Completed since <%= task.updated_at.strftime("%d %b %Y %I:%M%p") %>
+                  </div>
+                  <div class="col-md-2 text-md-right text-center completed">
+                    <i class="far fa-check-circle"></i>
+                  </div>
+                <% else %>
+                  <div class="col-md-8 offset-md-2 text-center">
+                    Deadline: <%= task.duedate.strftime("%d %b %Y") %>
+                  </div>
+                  <div class="col-md-2 text-md-right text-center complete-task">
+                    <%= form_with(model: task, url: [task.group.house, task.group, task], local: true) do |form| %>
+                      <%= form.hidden_field :completed, value: :true %>
+                      <%= button_tag(type:'submit', data: { confirm: 'Have you really done this?' }) do %>
+                        <i class="far fa-check-circle"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div><!-- end card-footer -->
+            </div><!-- end -->
+          </div><!-- end full row -->
+        </div><!-- end card -->
       <% end %>
-    </div>
+    <% end %>
+  </section>
   </div>
-<% end %>
+</section><!-- #portfolio -->

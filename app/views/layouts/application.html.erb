@@ -79,7 +79,7 @@
       </p>
     <% end %><!-- Alert -->
     
-    <% if !is_index? %>
+    <% if !(is_dashboard? || is_index?) %>
       <% section_class = "container" %>
     <%end %>
     <section id="main" class=<%= section_class %> >
