@@ -54,13 +54,13 @@
 
 #footer .footer-top .social-links a:hover {
   background: $yellow;
-  color: #fff;
+  color: $white;
 }
 
 #footer .footer-top h4 {
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
+  color: $white;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -141,7 +141,7 @@
   width: 35%;
   padding: 6px 0;
   text-align: center;
-  color: #fff;
+  color: $white;
   transition: 0.3s;
   cursor: pointer;
 }

@@ -39,6 +39,11 @@
             <% else %>
               <div class="col-lg-8 offset-lg-2 text-center">
                 Deadline: <%= @task.duedate.strftime("%d %b %Y") %>
+                <% if @task.duedate.past? %>
+                  <span class="red">(<%= (Date.today - @task.duedate).to_i %> days overdue)</span>
+                <% else %>
+                  <span>(due in <%= (@task.duedate-Date.today).to_i %> days)</span>
+                <% end %>
               </div>
               <div class="col-lg-2 text-lg-right text-centered complete-task">
                 <%= form_with(model: @task, url: [@house, @group, @task], local: true) do |form| %>
