@@ -55,7 +55,7 @@
   padding: 0 8px 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color: $white;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -76,7 +76,7 @@
   margin: 4px 0 0 0;
   padding: 10px;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  background: #fff;
+  background: $white;
 }
 
 .nav-menu ul li {
@@ -107,7 +107,7 @@
   right: 0;
   top: 0;
   z-index: 999;
-  margin: 20px 20px 0 0;
+  margin: 26px 20px 0 0;
   border: 0;
   background: none;
   font-size: 24px;
@@ -118,7 +118,7 @@
 }
 
 #mobile-nav-toggle i {
-  color: #fff;
+  color: $white;
 }
 
 /* Mobile Nav Styling */
@@ -126,7 +126,7 @@
 #mobile-nav {
   position: fixed;
   top: 0;
-  padding-top: 18px;
+  padding-top: 26px;
   bottom: 0;
   z-index: 998;
   background: rgba(0,153,153,0.6);
@@ -147,7 +147,7 @@
 }
 
 #mobile-nav ul li a {
-  color: #fff;
+  color: $white;
   font-size: 13px;
   text-transform: uppercase;
   overflow: hidden;
@@ -179,7 +179,7 @@
   z-index: 99;
   padding: 15px;
   cursor: pointer;
-  color: #fff;
+  color: $white;
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
@@ -216,5 +216,5 @@ body.mobile-nav-active #mobile-nav {
 }
 
 body.mobile-nav-active #mobile-nav-toggle {
-  color: #fff;
+  color: $white;
 }

@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 
 body {
-  background: #fff;
+  background: $white;
   color: #666666;
   font-family: "Open Sans", sans-serif;
 }
@@ -72,4 +72,8 @@ h6 {
 
 .hm-card-image {
   width: 100%;
+}
+
+.red {
+  color: $red;
 }

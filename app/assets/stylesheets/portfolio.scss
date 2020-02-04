@@ -43,7 +43,7 @@
   text-align: center;
   width: 36px;
   height: 36px;
-  background: #fff;
+  background: $white;
   border-radius: 50%;
   transition: 0.2s linear;
 }
@@ -62,7 +62,7 @@
 
 #portfolio .portfolio-item figure .link-preview:hover i,
 #portfolio .portfolio-item figure .link-details:hover i {
-  color: #fff;
+  color: $white;
 }
 
 #portfolio .portfolio-item figure .link-preview {
@@ -86,7 +86,7 @@
 }
 
 #portfolio .portfolio-item .portfolio-info {
-  background: #fff;
+  background: $white;
   text-align: center;
   padding: 30px;
   height: 90px;

@@ -16,7 +16,7 @@
 }
 
 #sub-items .icon i {
-  color: #fff;
+  color: $white;
   font-size: 36px;
   line-height: 1;
   transition: 0.5s;
@@ -35,7 +35,7 @@
 }
 
 #sub-items .box:hover .title a {
-  color: #fff;
+  color: $white;
 }
 
 #sub-items .description {
