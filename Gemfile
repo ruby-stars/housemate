@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8'
+  gem 'rubocop', '~> 0.79.0', require: false
 end
 
 group :development do

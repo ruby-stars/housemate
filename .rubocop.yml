@@ -1,0 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'db/schema*'
+
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  IgnoredPatterns: ['(\A|\s)#']
