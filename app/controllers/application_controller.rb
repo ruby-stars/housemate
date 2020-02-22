@@ -8,14 +8,21 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |_exception|
     respond_to do |format|
       format.json { head :forbidden }
-      format.html { redirect_to houses_url, alert: "You're not authorized to perform this action." }
+      format.html do
+        redirect_to houses_url,
+                    alert: "You're not authorized to perform this action."
+      end
     end
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[nickname firstname lastname bio birthday avatar])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[nickname firstname lastname bio birthday avatar])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[nickname firstname lastname bio
+                                               birthday avatar])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[nickname firstname lastname bio
+                                               birthday avatar])
   end
 end
