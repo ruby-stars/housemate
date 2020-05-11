@@ -20,7 +20,7 @@ jobs:
         environment:
           POSTGRES_USER: housemate
           POSTGRES_DB: housemate_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_HOST_AUTH_METHOD: trust
 
     steps:
       - checkout
